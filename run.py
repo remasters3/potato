@@ -1,4 +1,3 @@
-
 import RPi.GPIO as IO
 import time
 import curses
@@ -73,25 +72,25 @@ def forward(tf,spd):
     rf.ChangeDutyCycle(spd)
     lf.ChangeDutyCycle(spd)
     time.sleep(tf)
-    system('aplay /usr/share/sounds/alsa/Front_Center.wav')
+    # system('aplay -q /usr/share/sounds/alsa/Front_Center.wav')
 
 def backwards(tf,spd):
     rb.ChangeDutyCycle(spd)
     lb.ChangeDutyCycle(spd)
     time.sleep(tf)
-    system('aplay /usr/share/sounds/alsa/Rear_Center.wav')
+    # system('aplay -q /usr/share/sounds/alsa/Rear_Center.wav')
 
 def TurnRight(tf,spd):
     rb.ChangeDutyCycle(spd)
     lf.ChangeDutyCycle(spd)
     time.sleep(tf)
-    system('aplay /usr/share/sounds/alsa/Front_Right.wav')
+    # system('aplay -q /usr/share/sounds/alsa/Front_Right.wav')
     
 def TurnLeft(tf,spd):
     lb.ChangeDutyCycle(spd)
     rf.ChangeDutyCycle(spd)
     time.sleep(tf)
-    system('aplay /usr/share/sounds/alsa/Front_Left.wav')
+    # system('aplay -q /usr/share/sounds/alsa/Front_Left.wav')
 
 def allstop(tf):
     rf.stop()
@@ -236,7 +235,8 @@ try:
             elif char == 10:
                 system('clear')
                 print "stop"
-                allstop(0)   
+                allstop(0)
+                # system('aplay -q /usr/share/sounds/alsa/Noise.wav') 
              
 finally:
     servoa (90)
