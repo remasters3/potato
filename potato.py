@@ -28,31 +28,35 @@ try:
 
         elif char == ord('s'):
             system('clear')
-            if agl > 78:
+            if agl > 68:
                 agl = agl-12
                 movment.servoa(agl)
-                print (agl)
+                #print (agl)
+                print ("{0}".format(agl))
 
         elif char == ord('w'):
             system('clear')
             if agl < 126:
                 agl = agl+12
                 movment.servoa(agl)
-                print (agl)
+                #print (agl)
+                print ("{0}".format(agl))
 
         elif char == ord('a'):
             system('clear')
             if pan < 180:
                 pan = pan+30
                 movment.servob(pan)
-                print (pan)
+                #print (pan)
+                print ("{0}".format(pan))
                 
         elif char == ord('d'):
             system('clear')
             if pan > 0:
                 pan = pan-30
                 movment.servob(pan)
-                print (pan)
+                #print (pan)
+                print ("{0}".format(pan))
 
         elif char == ord('l'):
             system('clear')
@@ -65,35 +69,36 @@ try:
         elif char ==ord('p'):
             system('clear')
             dist = sonar.pingFront()
-            print dist
+            #print (dist)
+            print ("{0}".format(dist))
 
         elif char == curses.KEY_UP:
-    	    movment.allstop(0)
-    	    system('clear')
-            print " ^ "
-    	    movment.forward(0,power)
+            movment.allstop(0)
+            system('clear')
+            print(' ^ ')
+            movment.forward(0,power)
 
         elif char == curses.KEY_DOWN:
-    	    movment.allstop(0)
+            movment.allstop(0)
             system('clear')
-            print " v "
+            print(" v ")
             movment.backwards(0,power)
  
         elif char == curses.KEY_RIGHT:
-    	    movment.allstop(0)
+            movment.allstop(0)
             system('clear')
-            print "  >"
+            print("  >")
             movment.TurnRight(0,power)
 
         elif char == curses.KEY_LEFT:
-    	    movment.allstop(0)
+            movment.allstop(0)
             system('clear')
-            print "<  "
+            print("<  ")
             movment.TurnLeft(0,power)
 
         elif char == 10:
             system('clear')
-            print " - "
+            print(" - ")
             movment.allstop(0)
 
 finally:

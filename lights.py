@@ -11,15 +11,15 @@ lightio.output(21,lightio.LOW)
 def frontlight():
     if lightio.input(27) == 1:
         lightio.output(27, 0)
-        print "Front Light off"
+        print ("Front Light off")
     elif lightio.input(27) == 0:
         lightio.output(27, 1)
-        print "Front Light on"
+        print ("Front Light on")
 
 def camlight():
     if lightio.input(21) == 1:
         lightio.output(21, 0)
-        print "Camera Light off"
+        print ("Camera Light off")
     elif lightio.input(21) == 0:
         lightio.output(21, 1)
-        print "Camera Light on"
+        print ("Camera Light on")
