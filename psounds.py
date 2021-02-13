@@ -1,41 +1,54 @@
 from pygame import mixer
 from os import path
+import glob
+import random
 mixer.init()
 mixer.music.unload
 filedir = (path.dirname(path.realpath(__file__)))
 
-def horn ():
-    file = ("{0}/{1}".format(filedir, "sounds/horn.wav"))
-    mixer.music.load(file)
+def psoundplay (psoundfile):
+    mixer.music.load(psoundfile)
     mixer.music.play()
     mixer.music.unload
+
+def randomvoice (seachstring):
+    string = ("{0}/{1}".format(filedir, seachstring))
+    list = (glob.glob(string))
+    file = (random.choice(list))
+    return str(file)
+    
+def yes():
+    psoundplay((randomvoice(("sounds/voice/yes/*.wav"))))
+
+def no():
+    psoundplay((randomvoice(("sounds/voice/no/*.wav"))))
+ 
+def thanks ():
+    psoundplay((randomvoice(("sounds/voice/thanks/*.wav"))))
+
+def uwelcome ():
+    psoundplay((randomvoice(("sounds/voice/uwelcome/*.wav"))))
+
+def hello ():
+    psoundplay((randomvoice(("sounds/voice/hello/*.wav"))))
+
+def bye ():
+    psoundplay((randomvoice(("sounds/voice/bye/*.wav"))))
+
+def horn ():
+    psoundplay((randomvoice(("sounds/horn/*.wav"))))
     
 def rocket ():
-    file = ("{0}/{1}".format(filedir, "sounds/explosion.wav"))
-    mixer.music.load(file)
-    mixer.music.play()
-    mixer.music.unload
+    psoundplay((randomvoice(("sounds/shoot/*.wav"))))
 
 def ping ():
-    file = ("{0}/{1}".format(filedir, "sounds/sonar_ping.mp3"))
-    mixer.music.load(file)
-    mixer.music.play()
-    mixer.music.unload
+    psoundplay((randomvoice(("sounds/sonar/*.mp3"))))
 
 def bark ():
-    file = ("{0}/{1}".format(filedir, "sounds/dogbrk.wav"))
-    mixer.music.load(file)
-    mixer.music.play()
-    mixer.music.unload
+    psoundplay((randomvoice(("sounds/woof/*.wav"))))
 	
 def move ():
-    file = ("{0}/{1}".format(filedir, "sounds/Trash_Can.wav"))
-    mixer.music.load(file)
-    mixer.music.play()
-    mixer.music.unload
+    psoundplay((randomvoice(("sounds/movment/*.wav"))))
 
 def stop ():
-    file = ("{0}/{1}".format(filedir, "sounds/dryer_door.wav"))
-    mixer.music.load(file)
-    mixer.music.play()
-    mixer.music.unload
+    psoundplay((randomvoice(("sounds/movment/*.wav"))))

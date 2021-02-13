@@ -74,6 +74,36 @@ try:
             psounds.bark()
             print ("{0}".format("Wuff!"))
 
+        elif char == ord('g'):
+            system('clear')
+            psounds.hello()
+            print ("{0}".format("Hallo"))            
+
+        elif char == ord('G'):
+            system('clear')
+            psounds.bye()
+            print ("{0}".format("ttfn"))
+
+        elif char == ord('t'):
+            system('clear')
+            psounds.thanks()
+            print ("{0}".format("danke!"))            
+
+        elif char == ord('T'):
+            system('clear')
+            psounds.uwelcome()
+            print ("{0}".format("You're Welcome!"))
+
+        elif char == ord('y'):
+            system('clear')
+            psounds.yes()
+            print ("{0}".format("Yes!"))            
+
+        elif char == ord('Y'):
+            system('clear')
+            psounds.no()
+            print ("{0}".format("No!"))
+
         elif char == ord('l'):
             system('clear')
             lights.frontlight()
