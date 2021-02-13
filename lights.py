@@ -7,7 +7,6 @@ lightio.setup(21,lightio.OUT)
 lightio.output(27,lightio.LOW)
 lightio.output(21,lightio.LOW)
 
-
 def frontlight():
     if lightio.input(27) == 1:
         lightio.output(27, 0)

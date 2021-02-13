@@ -1,6 +1,10 @@
 import RPi.GPIO as MP
 import time
 from os import system
+
+from pygame import mixer as msound
+msound.init()
+
 MP.setwarnings(False)
 
 MP.setmode(MP.BCM)
@@ -41,25 +45,25 @@ def forward(tf,spd):
     rf.ChangeDutyCycle(spd)
     lf.ChangeDutyCycle(spd)
     time.sleep(tf)
-    # system('aplay -q /usr/share/sounds/alsa/Front_Center.wav')
+
 
 def backwards(tf,spd):
     rb.ChangeDutyCycle(spd)
     lb.ChangeDutyCycle(spd)
     time.sleep(tf)
-    # system('aplay -q /usr/share/sounds/alsa/Rear_Center.wav')
+
 
 def TurnRight(tf,spd):
     rb.ChangeDutyCycle(spd)
     lf.ChangeDutyCycle(spd)
     time.sleep(tf)
-    # system('aplay -q /usr/share/sounds/alsa/Front_Right.wav')
+
     
 def TurnLeft(tf,spd):
     lb.ChangeDutyCycle(spd)
     rf.ChangeDutyCycle(spd)
     time.sleep(tf)
-    # system('aplay -q /usr/share/sounds/alsa/Front_Left.wav')
+
 
 def allstop(tf):
     rf.stop()
@@ -71,16 +75,16 @@ def allstop(tf):
     lf.start(0)
     lb.start(0)
     time.sleep(tf)
-    #system('aplay /usr/share/sounds/alsa/Noise.wav')
+
 
 def threesixty():
     TurnRight(10.1,100)
     allstop(0)
-	
+    
 def oneeighty():
     TurnRight(5.09,100)
     allstop(0)
-	
+    
 def clearmp():
     sa.stop()
     sb.stop()

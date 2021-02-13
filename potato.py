@@ -4,6 +4,7 @@ from os import system
 import movment as movment
 import sonar as sonar
 import lights as lights
+import psounds as psounds
 #system('python movment.py')
 
 ## default and start settings
@@ -57,6 +58,21 @@ try:
                 movment.servob(pan)
                 #print (pan)
                 print ("{0}".format(pan))
+                
+        elif char == ord('h'):
+            system('clear')
+            psounds.horn()
+            print ("{0}".format("Beep! Beep!"))
+            
+        elif char == ord('f'):
+            system('clear')
+            psounds.rocket()
+            print ("{0}".format("Fire in the hole!"))
+            
+        elif char == ord('b'):
+            system('clear')
+            psounds.bark()
+            print ("{0}".format("Wuff!"))
 
         elif char == ord('l'):
             system('clear')
@@ -69,7 +85,7 @@ try:
         elif char ==ord('p'):
             system('clear')
             dist = sonar.pingFront()
-            #print (dist)
+            psounds.ping()
             print ("{0}".format(dist))
 
         elif char == curses.KEY_UP:
@@ -77,29 +93,34 @@ try:
             system('clear')
             print(' ^ ')
             movment.forward(0,power)
+            psounds.move()
 
         elif char == curses.KEY_DOWN:
             movment.allstop(0)
             system('clear')
             print(" v ")
             movment.backwards(0,power)
+            psounds.move()
  
         elif char == curses.KEY_RIGHT:
             movment.allstop(0)
             system('clear')
             print("  >")
             movment.TurnRight(0,power)
+            psounds.move()
 
         elif char == curses.KEY_LEFT:
             movment.allstop(0)
             system('clear')
             print("<  ")
             movment.TurnLeft(0,power)
+            psounds.move()
 
         elif char == 10:
             system('clear')
             print(" - ")
             movment.allstop(0)
+            psounds.stop()
 
 finally:
     movment.servoa (90)
