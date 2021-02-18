@@ -38,7 +38,7 @@ def bye ():
 def horn ():
     psoundplay((randomvoice(("sounds/horn/*.wav"))))
     
-def rocket ():
+def shoot ():
     psoundplay((randomvoice(("sounds/shoot/*.wav"))))
 
 def ping ():

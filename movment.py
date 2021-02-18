@@ -2,9 +2,6 @@ import RPi.GPIO as MP
 import time
 from os import system
 
-from pygame import mixer as msound
-msound.init()
-
 MP.setwarnings(False)
 
 MP.setmode(MP.BCM)

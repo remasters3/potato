@@ -22,5 +22,5 @@ def pingFront():
     stop = time.time()
 
     dist = (stop - start) * 17000
-    return float(dist)
+    return int(dist)
     SONAR.cleanup()

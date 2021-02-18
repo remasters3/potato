@@ -5,17 +5,13 @@ import movment as movment
 import sonar as sonar
 import lights as lights
 import psounds as psounds
-#system('python movment.py')
 
-## default and start settings
 power = 100
 agl = 90
 pan = 90
 movment.servoa(agl)
 movment.servob (pan)
 
-# Get the curses window, turn off echoing of keyboard to screen, turn on
-# instant (no waiting) key response, and use special values for cursor keys
 screen = curses.initscr()
 curses.noecho() 
 curses.cbreak()
@@ -29,18 +25,16 @@ try:
 
         elif char == ord('s'):
             system('clear')
-            if agl > 68:
+            if agl > 56:
                 agl = agl-12
                 movment.servoa(agl)
-                #print (agl)
                 print ("{0}".format(agl))
 
         elif char == ord('w'):
             system('clear')
-            if agl < 126:
+            if agl < 138:
                 agl = agl+12
                 movment.servoa(agl)
-                #print (agl)
                 print ("{0}".format(agl))
 
         elif char == ord('a'):
@@ -48,15 +42,20 @@ try:
             if pan < 180:
                 pan = pan+30
                 movment.servob(pan)
-                #print (pan)
                 print ("{0}".format(pan))
-                
+
+        elif char == ord ('e'):
+            system('clear')
+            agl = 90
+            pan = 90
+            movment.servoa(agl)
+            movment.servob(pan)
+            
         elif char == ord('d'):
             system('clear')
             if pan > 0:
                 pan = pan-30
                 movment.servob(pan)
-                #print (pan)
                 print ("{0}".format(pan))
                 
         elif char == ord('h'):
@@ -66,7 +65,7 @@ try:
             
         elif char == ord('f'):
             system('clear')
-            psounds.rocket()
+            psounds.shoot()
             print ("{0}".format("Fire in the hole!"))
             
         elif char == ord('b'):
@@ -121,9 +120,13 @@ try:
         elif char == curses.KEY_UP:
             movment.allstop(0)
             system('clear')
-            print(' ^ ')
-            movment.forward(0,power)
-            psounds.move()
+            dist = sonar.pingFront()
+            if dist > 30:
+                print(' ^ ')
+                movment.forward(0,power)
+                psounds.move()
+            else:
+                print ("Obstruction Detected at {0}cm".format(dist)) 
 
         elif char == curses.KEY_DOWN:
             movment.allstop(0)
@@ -158,6 +161,6 @@ finally:
     system('clear')
     movment.allstop(0)
     movment.clearmp()
-    # Close down curses properly, inc turn echo back on!
+
     curses.nocbreak(); screen.keypad(0); curses.echo()
     curses.endwin()
