@@ -113,9 +113,12 @@ try:
 
         elif char ==ord('p'):
             system('clear')
-            dist = sonar.pingFront()
+            frontdist = sonar.pingFront()
+            reardist = sonar.pingRear()
+            leftdist = sonar.pingLeft()
+            rightdist = sonar.pingRight()
             psounds.ping()
-            print ("{0}".format(dist))
+            print("| Front:{0} | Rear:{1} | Left:{2} | Right:{3} |".format(frontdist,reardist,leftdist,rightdist))
 
         elif char == curses.KEY_UP:
             movment.allstop(0)

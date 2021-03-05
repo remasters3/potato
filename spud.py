@@ -14,47 +14,47 @@ agl = 90
 pan = 90
 movment.servoa(agl)
 movment.servob (pan)
-trigist = 40
+trigdist = 30
 
 try:
     while True:
-        ## system('clear')
         frontdist = sonar.pingFront()
         reardist = sonar.pingRear()
         leftdist = sonar.pingLeft()
         rightdist = sonar.pingRight()
             
-        if frontdist < trigist:
-            while frontdist < trigist:
+        if frontdist < trigdist:
+            while frontdist < trigdist:
                 # movment.allstop(0)
                 movment.backwards(0,power)
                 time.sleep(0.2)
                 frontdist = sonar.pingFront()
             
-        elif reardist < trigist:
-            while reardist < trigist:
+        elif reardist < trigdist:
+            while reardist < trigdist:
                 # movment.allstop(0)
                 movment.forward(0,power)
                 time.sleep(0.2)
                 reardist = sonar.pingRear()
 
-        elif rightdist < trigist:
-            while rightdist < trigist:
+        elif rightdist < trigdist:
+            while rightdist < trigdist:
                 # movment.allstop(0)
                 movment.TurnLeft(0,power)
                 time.sleep(0.2)
                 rightdist = sonar.pingRight()
             
-        elif leftdist < trigist:
-            while leftdist < trigist:
+        elif leftdist < trigdist:
+            while leftdist < trigdist:
                 # movment.allstop(0)
                 movment.TurnRight(0,power)
                 time.sleep(0.2)
                 leftdist = sonar.pingLeft()
 
-        time.sleep(0.2)
+        # time.sleep(0.2)
         movment.allstop(0)
-        print("Front - {0}. Rear - {1}. Left - {2}. Right {3}".format(frontdist,reardist,leftdist,rightdist))
+        system('clear')
+        print(" | Front:{0} | Rear:{1} | Left:{2} | Right:{3} |".format(frontdist,reardist,leftdist,rightdist))
 
 finally:
     movment.servoa (90)
