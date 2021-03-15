@@ -20,6 +20,7 @@ try:
         rdist = sonar.pingRight()
         
         if ldist > rdist and ldist > fdist and ldist > bdist and ldist > mindist and ldist < maxdist:
+            movment.allstop(0)
             while ldist > rdist and ldist > fdist and ldist > bdist and ldist > mindist and ldist < maxdist:
                 movment.TurnRight(0,power)
                 fdist = sonar.pingFront()
@@ -31,6 +32,7 @@ try:
                 print ("right")
                 
         elif rdist > ldist and rdist > fdist and rdist > bdist and rdist > mindist and rdist < maxdist:
+            movment.allstop(0)
             while rdist > ldist and rdist > fdist and rdist > bdist and rdist > mindist and rdist < maxdist:
                 movment.TurnLeft(0,power)
                 fdist = sonar.pingFront()
@@ -42,6 +44,7 @@ try:
                 print ("left")
                 
         elif fdist > ldist and fdist > rdist and fdist > bdist and fdist > mindist and fdist < maxdist:
+            movment.allstop(0)
             while fdist > ldist and fdist > rdist and fdist > bdist and fdist > mindist and fdist < maxdist:
                 movment.forward(0,power)
                 fdist = sonar.pingFront()
@@ -53,6 +56,7 @@ try:
                 print ("forward")
                 
         elif bdist > ldist and bdist > rdist and bdist > fdist and bdist > mindist and bdist < maxdist:
+            movment.allstop(0)
             while bdist > ldist and bdist > rdist and bdist > fdist and bdist > mindist and bdist < maxdist:
                 movment.backwards(0,power)
                 fdist = sonar.pingFront()
