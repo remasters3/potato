@@ -37,7 +37,7 @@ try:
             movment.allstop(0)
         system('clear')
         print(" | Front:{0} | Rear:{1} | Left:{2} | Right:{3} |".format(fdist,bdist,ldist,rdist))
-
+        time.sleep(0.2)
 finally:
     movment.servoa (90)
     movment.servob (90)
