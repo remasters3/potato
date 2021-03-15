@@ -21,7 +21,7 @@ mindist = 30
 try:
     while True:
         fdist = sonar.pingFront()
-        rdist = sonar.pingRear()
+        bdist = sonar.pingRear()
         ldist = sonar.pingLeft()
         rdist = sonar.pingRight()
         
