@@ -1,20 +1,14 @@
 import time
-import curses
 from os import system
 import movment as movment
 import sonar as sonar
-import lights as lights
-import psounds as psounds
 import time
-#system('python movment.py')
 
-## default and start settings
 power = 100
 agl = 90
 pan = 90
 movment.servoa(agl)
 movment.servob (pan)
-trigdist = 30
 maxdist = 200
 mindist = 30
 
@@ -64,7 +58,7 @@ try:
             movment.allstop(0)
         system('clear')
         print(" | Front:{0} | Rear:{1} | Left:{2} | Right:{3} |".format(fdist,bdist,ldist,rdist))
-        # time.sleep(0.2)
+        time.sleep(0.2)
 finally:
     movment.servoa (90)
     movment.servob (90)
