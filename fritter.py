@@ -27,6 +27,8 @@ try:
                 ldist = sonar.pingLeft()
                 rdist = sonar.pingRight()
                 time.sleep(0.2)
+                system('clear')
+                print ("right")
                 
         elif rdist > ldist and rdist > fdist and rdist > bdist and rdist > mindist and rdist < maxdist:
             while rdist > ldist and rdist > fdist and rdist > bdist and rdist > mindist and rdist < maxdist:
@@ -36,6 +38,8 @@ try:
                 ldist = sonar.pingLeft()
                 rdist = sonar.pingRight()
                 time.sleep(0.2)
+                system('clear')
+                print ("left")
                 
         elif fdist > ldist and fdist > rdist and fdist > bdist and fdist > mindist and fdist < maxdist:
             while fdist > ldist and fdist > rdist and fdist > bdist and fdist > mindist and fdist < maxdist:
@@ -45,6 +49,8 @@ try:
                 ldist = sonar.pingLeft()
                 rdist = sonar.pingRight()
                 time.sleep(0.2)
+                system('clear')
+                print ("forward")
                 
         elif bdist > ldist and bdist > rdist and bdist > fdist and bdist > mindist and bdist < maxdist:
             while bdist > ldist and bdist > rdist and bdist > fdist and bdist > mindist and bdist < maxdist:
@@ -54,6 +60,8 @@ try:
                 ldist = sonar.pingLeft()
                 rdist = sonar.pingRight()
                 time.sleep(0.2)
+                system('clear')
+                print ("back")
         else:
             movment.allstop(0)
         system('clear')
