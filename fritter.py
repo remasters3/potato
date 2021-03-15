@@ -36,7 +36,7 @@ try:
         else:
             movment.allstop(0)
         system('clear')
-        print(" | Front:{0} | Rear:{1} | Left:{2} | Right:{3} |".format(frontdist,reardist,leftdist,rightdist))
+        print(" | Front:{0} | Rear:{1} | Left:{2} | Right:{3} |".format(ftdist,bdist,ldist,rdist))
 
 finally:
     movment.servoa (90)
