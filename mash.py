@@ -38,9 +38,9 @@ class MyServer(BaseHTTPRequestHandler):
            <h1>MAsh PytAto!</h1>
            <p>
            Current GPU temperature is {}
-           <br>  <a href="/forward">-^-</a>
+           <br><a href="/forward">---^---</a>
            <br><a href="/left"><</a> <a href="/stop">O</a> <a href="/right">></a>
-           <br>  <a href="/back">-V-</a>
+           <br><a href="/back">---V---</a>
            </p>
            <div id="led-status"></div>
            <script>
