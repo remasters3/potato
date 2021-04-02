@@ -53,7 +53,7 @@ class MyServer(BaseHTTPRequestHandler):
         <html>
         <head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title></title></head>
         <body>
-        <table style="width: 156px; height: 156px; text-align: left; margin-left:0px; margin-right:0px;">
+        <table style="width: 156px; height: 156px; text-align: right; margin-left:0px; margin-right:0px;">
         <tbody>
         <tr>
         <td></td>
