@@ -55,7 +55,7 @@ class MyServer(BaseHTTPRequestHandler):
            <table style="height: 100%; margin-left: auto; margin-right: auto; width: 100%;" cellpadding="0">
            <tbody>
            <tr>
-           <td style="width: 376.267px; text-align: center;"><img class="shrinkToFit overflowingVertical" src="images/matrix.jpg" alt="No Stream" height="90%" width="90%"></td>
+           <td style="width: 376.267px; text-align: center;"><img class="shrinkToFit overflowingVertical" src="http://192.168.240.14/potato/images/images/matrix.jpg" alt="No Stream" height="90%" width="90%"></td>
            <td style="width: 364.733px;">
            <table style="width: 156px; height: 156px; text-align: left; margin-left: auto; margin-right: auto;">
            <tbody>
@@ -66,17 +66,17 @@ class MyServer(BaseHTTPRequestHandler):
            </tr>
            <tr>
            <td style="width: 18.7667px; text-align: center;">&nbsp;</td>
-           <td style="width: 18.7833px; text-align: center;"><a href="/forward"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="images/forward.png"></a></td>
+           <td style="width: 18.7833px; text-align: center;"><a href="/forward"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/forward.png"></a></td>
            <td style="width: 27.45px; text-align: center;">&nbsp;</td>
            </tr>
            <tr style="text-align: right;">
-           <td style="width: 18.7667px; text-align: center;"><a href="/left"><img style="border: 0px solid ; width: 50px; height: 50px;" src="/images/left.png" alt="" hspace="0" vspace="0"></a></td>
-           <td style="width: 18.7833px; text-align: center;"><a href="/stop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="/images/stop.png" alt=""></a></td>
-           <td style="width: 27.45px; text-align: center;"><a href="/right"><img style="border: 0px solid ; width: 50px; height: 50px;" src="/images/right.png" alt=""></a></td>
+           <td style="width: 18.7667px; text-align: center;"><a href="/left"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/images/left.png" alt="" hspace="0" vspace="0"></a></td>
+           <td style="width: 18.7833px; text-align: center;"><a href="/stop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/images/stop.png" alt=""></a></td>
+           <td style="width: 27.45px; text-align: center;"><a href="/right"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/images/right.png" alt=""></a></td>
            </tr>
            <tr style="text-align: center;">
            <td style="width: 18.7667px;">&nbsp;</td>
-           <td style="width: 18.7833px; text-align: center;"><a href="/back"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="/images/back.png"></a></td>
+           <td style="width: 18.7833px; text-align: center;"><a href="/back"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/images/back.png"></a></td>
            <td style="width: 27.45px; text-align: center;">&nbsp;</td>
            </tr>
            <tr>
