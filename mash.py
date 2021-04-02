@@ -32,19 +32,69 @@ class MyServer(BaseHTTPRequestHandler):
         """ do_GET() can be tested using curl command
             'curl http://server-ip-address:port'
         """
+#         html = '''
+#            <html>
+#            <body style="width:960px; margin: 20px auto;">
+#            <h1>MAsh</h1>
+#            <p>
+#            TEMP{}
+#            <br>----<a href="/forward">^</a>----
+#            <br><a href="/left"><</a>--<a href="/stop">O</a>--<a href="/right">></a>
+#            <br>----<a href="/back">V</a>----
+#            </p>
+#            <div id="led-status"></div>
+#            <script>
+#                document.getElementById("led-status").innerHTML="{}";
+#            </script>
+#            </body>
+#            </html>
+#         '''
         html = '''
            <html>
-           <body style="width:960px; margin: 20px auto;">
-           <h1>MAsh</h1>
-           <p>
-           TEMP{}
-           <br>----<a href="/forward">^</a>----
-           <br><a href="/left"><</a>--<a href="/stop">O</a>--<a href="/right">></a>
-           <br>----<a href="/back">V</a>----
-           </p>
+           <body>
+           <table style="height: 100%; margin-left: auto; margin-right: auto; width: 100%;" cellpadding="0">
+           <tbody>
+           <tr>
+           <td style="width: 376.267px; text-align: center;"><img class="shrinkToFit overflowingVertical" src="images/matrix.jpg" alt="No Stream" height="90%" width="90%"></td>
+           <td style="width: 364.733px;">
+           <table style="width: 156px; height: 156px; text-align: left; margin-left: auto; margin-right: auto;">
+           <tbody>
+           <tr>
+           <td></td>
+           <td>TEMP{}</td>
+           <td></td>
+           </tr>
+           <tr>
+           <td style="width: 18.7667px; text-align: center;">&nbsp;</td>
+           <td style="width: 18.7833px; text-align: center;"><a href="/forward"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="images/forward.png"></a></td>
+           <td style="width: 27.45px; text-align: center;">&nbsp;</td>
+           </tr>
+           <tr style="text-align: right;">
+           <td style="width: 18.7667px; text-align: center;"><a href="/left"><img style="border: 0px solid ; width: 50px; height: 50px;" src="images/left.png" alt="" hspace="0" vspace="0"></a></td>
+           <td style="width: 18.7833px; text-align: center;"><a href="/stop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="images/stop.png" alt=""></a></td>
+           <td style="width: 27.45px; text-align: center;"><a href="/right"><img style="border: 0px solid ; width: 50px; height: 50px;" src="images/right.png" alt=""></a></td>
+           </tr>
+           <tr style="text-align: center;">
+           <td style="width: 18.7667px;">&nbsp;</td>
+           <td style="width: 18.7833px; text-align: center;"><a href="/back"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="images/back.png"></a></td>
+           <td style="width: 27.45px; text-align: center;">&nbsp;</td>
+           </tr>
+           <tr>
+           <td></td>
+           <td>
            <div id="led-status"></div>
+           </td>
+           <td></td>
+           </tr>
+           </tbody>
+           </table>
+           </td>
+           </tr>
+           </tbody>
+           </table>
+           <p>&nbsp;</p>
            <script>
-               document.getElementById("led-status").innerHTML="{}";
+           document.getElementById("led-status").innerHTML="{}";
            </script>
            </body>
            </html>
