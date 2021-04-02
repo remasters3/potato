@@ -52,9 +52,11 @@ class MyServer(BaseHTTPRequestHandler):
         if self.path=='/':
             movment.allstop(0)
         elif self.path=='/on':
+            movment.allstop(0)
             movment.forward(0,power)
             status='LED is On'
         elif self.path=='/off':
+            movment.allstop(0)
             movment.backwards(0,power)
             status='LED is Off'
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
