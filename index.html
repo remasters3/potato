@@ -1,18 +1,41 @@
-<div id="contentframe" style="height:200%;width:200%;position:relative;top: 5px; left: 900px;">
+<html>
+<head>
+<style>
+.box{
+    float:left;
+    margin-right:20px;
+}
+.clear{
+    clear:both;
+}
+</style>
+</head>
+<body>
+<div id="box" style="height:200%;width:200%;position:relative;top: 5px; left: 900px;">
 <iframe
     src="http://192.168.240.14/potato/images/matrix.jpg"
     name="CamFrame"
-    style="border: none;height:200%;width:200%;"
+    frameborder="0" 
+    scrolling="no" 
+    width="100%" 
+    height="512" 
+    align="left"
 >
 </iframe>
 </div>
 
 
-<div id="contentframe" style="height:20%;width:20%;position:absolute; top: 5px; left: 90px;">
+<div id="box" style="height:20%;width:20%;position:absolute; top: 5px; left: 90px;">
 <iframe
     src="http://192.168.240.14:8000"
     name="ControlFrame"
-    style="border: none;height:20%;width:20%;"
+    frameborder="0" 
+    scrolling="no" 
+    width="100%" 
+    height="512" 
+    align="right"
 >
 </iframe>
 </div>
+</body>
+</html>
