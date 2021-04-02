@@ -50,58 +50,45 @@ class MyServer(BaseHTTPRequestHandler):
 #            </html>
 #         '''
         html = '''
-           <html>
-           <body>
-           <table
-            style="width: 156px; height: 156px; text-align: left; margin-left: auto; margin-right: auto;">
-             <tbody>
-               <tr>
-                 <td></td>
-                 <td>TEMP{}</td>
-                 <td></td>
-               </tr>
-               <tr>
-                 <td style="width: 18.7667px; text-align: center;">&nbsp;</td>
-                 <td style="width: 18.7833px; text-align: center;"><a
-            href="file:///forward"><img
-            style="border: 0px solid ; width: 50px; height: 50px;" alt=""
-            src="file:///F:/scripts/python/potato/images/forward.png"></a></td>
-                 <td style="width: 27.45px; text-align: center;">&nbsp;</td>
-               </tr>
-               <tr style="text-align: right;">
-                 <td style="width: 18.7667px; text-align: center;"><a
-            href="file:///left"><img
-            style="border: 0px solid ; width: 50px; height: 50px;"
-            src="file:///F:/scripts/python/potato/images/left.png" alt=""
-            hspace="0" vspace="0"></a></td>
-                 <td style="width: 18.7833px; text-align: center;"><a
-            href="file:///stop"><img
-            style="border: 0px solid ; width: 50px; height: 50px;"
-            src="file:///F:/scripts/python/potato/images/stop.png" alt=""></a></td>
-                 <td style="width: 27.45px; text-align: center;"><a
-            href="file:///right"><img
-            style="border: 0px solid ; width: 50px; height: 50px;"
-            src="file:///F:/scripts/python/potato/images/right.png" alt=""></a></td>
-               </tr>
-               <tr style="text-align: center;">
-                 <td style="width: 18.7667px;">&nbsp;</td>
-                 <td style="width: 18.7833px; text-align: center;"><a
-            href="file:///back"><img
-            style="border: 0px solid ; width: 50px; height: 50px;" alt=""
-            src="file:///F:/scripts/python/potato/images/back.png"></a></td>
-                 <td style="width: 27.45px; text-align: center;">&nbsp;</td>
-               </tr>
-               <tr>
-                 <td></td>
-                 <td>
-                 <div id="led-status"></div>
-                 </td>
-                 <td></td>
-               </tr>
-             </tbody>
-           </table>
-           </body>
-           </html>
+        <html>
+        <head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title></title></head>
+        <body>
+        <table style="width: 156px; height: 156px; text-align: left; margin-left: auto; margin-right: auto;">
+        <tbody>
+        <tr>
+        <td></td>
+        <td>TEMP{}</td>
+        <td></td>
+        </tr>
+        <tr>
+        <td style="width: 18.7667px; text-align: center;">&nbsp;</td>
+        <td style="width: 18.7833px; text-align: center;"><a href="/forward"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/forward.png"></a></td>
+        <td style="width: 27.45px; text-align: center;">&nbsp;</td>
+        </tr>
+        <tr style="text-align: right;">
+        <td style="width: 18.7667px; text-align: center;"><a href="/left"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/left.png" alt="" hspace="0" vspace="0"></a></td>
+        <td style="width: 18.7833px; text-align: center;"><a href="/stop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/stop.png" alt=""></a></td>
+        <td style="width: 27.45px; text-align: center;"><a href="/right"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/right.png" alt=""></a></td>
+        </tr>
+        <tr style="text-align: center;">
+        <td style="width: 18.7667px;">&nbsp;</td>
+        <td style="width: 18.7833px; text-align: center;"><a href="/back"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/back.png"></a></td>
+        <td style="width: 27.45px; text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+        <td></td>
+        <td>
+        <div id="led-status"></div>
+        </td>
+        <td></td>
+        </tr>
+        </tbody>
+        </table>
+        <script>
+            document.getElementById("led-status").innerHTML="{}";
+        </script>
+        </body>
+        </html>
         '''
         temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
         self.do_HEAD()
