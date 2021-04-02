@@ -35,9 +35,9 @@ class MyServer(BaseHTTPRequestHandler):
         html = '''
            <html>
            <body style="width:960px; margin: 20px auto;">
-           <h1>MAsh PytAto!</h1>
+           <h1>MAsh</h1>
            <p>
-           Current GPU temperature is {}
+           TEMP{}
            <br>----<a href="/forward">^</a>----
            <br><a href="/left"><</a>--<a href="/stop">O</a>--<a href="/right">></a>
            <br>----<a href="/back">V</a>----
