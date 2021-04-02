@@ -36,36 +36,36 @@ class MyServer(BaseHTTPRequestHandler):
         <html>
         <head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title></title></head>
         <body>
-        <table style="width: 156px; height: 156px;"> <tbody>
-        <tr>
-        <td></td>
-        <td>TEMP:{}</td>
-        <td></td>
-        </tr>
-        <tr>
-        <td style="width: 18.7667px; text-align: center;">&nbsp;</td>
-        <td style="width: 18.7833px; text-align: center;"><a href="/forward"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/forward.png"></a></td>
-        <td style="width: 27.45px; text-align: center;">&nbsp;</td>
-        </tr>
-        <tr style="text-align: right;">
-        <td style="width: 18.7667px; text-align: center;"><a href="/left"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/left.png" alt="" hspace="0" vspace="0"></a></td>
-        <td style="width: 18.7833px; text-align: center;"><a href="/stop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/stop.png" alt=""></a></td>
-        <td style="width: 27.45px; text-align: center;"><a href="/right"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/right.png" alt=""></a></td>
-        </tr>
-        <tr style="text-align: center;">
-        <td style="width: 18.7667px;">&nbsp;</td>
-        <td style="width: 18.7833px; text-align: center;"><a href="/back"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/back.png"></a></td>
-        <td style="width: 27.45px; text-align: center;">&nbsp;</td>
-        </tr>
-        <tr>
-        <td></td>
-        <td style="text-align: center;">
-        <div id="led-status"></div>
-        </td>
-        <td></td>
-        </tr><tr><td></td><td><a href="/camup"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/forward.png"></a></td><td></td></tr><tr><td><a href="/camleft"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/left.png" alt="" hspace="0" vspace="0"></a></td><td><a href="/camstop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/stop.png" alt=""></a></td><td><a href="/camright"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/right.png" alt=""></a></td></tr><tr><td></td><td><a href="/camdown"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/back.png"></a></td><td></td></tr>
-        </tbody>
-        </table>
+<table style="width: 156px; height: 156px;"> <tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">TEMP:{}</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="width: 18.7667px; text-align: center;">&nbsp;</td>
+<td style="width: 18.7833px; text-align: center;"><a href="/forward"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/forward.png"></a></td>
+<td style="width: 27.45px; text-align: center;">&nbsp;</td>
+</tr>
+<tr style="text-align: right;">
+<td style="width: 18.7667px; text-align: center;"><a href="/left"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/left.png" alt="" hspace="0" vspace="0"></a></td>
+<td style="width: 18.7833px; text-align: center;"><a href="/stop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/stop.png" alt=""></a></td>
+<td style="width: 27.45px; text-align: center;"><a href="/right"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/right.png" alt=""></a></td>
+</tr>
+<tr style="text-align: center;">
+<td style="width: 18.7667px; text-align: center;">&nbsp;</td>
+<td style="width: 18.7833px; text-align: center;"><a href="/back"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/back.png"></a></td>
+<td style="width: 27.45px; text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">
+<div id="led-status"></div>
+</td>
+<td style="text-align: center;"></td>
+</tr><tr><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td></tr><tr><td style="height: 50px; width: 50px; text-align: center; vertical-align: middle;"></td><td style="height: 50px; width: 50px; text-align: center;"><a href="/camup"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/forward.png"></a></td><td style="height: 50px; width: 50px; text-align: center;"></td></tr><tr><td style="height: 50px; width: 50px; text-align: center;"><a href="/camleft"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/left.png" alt="" hspace="0" vspace="0"></a></td><td style="text-align: center;"><a href="/camstop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/stop.png" alt=""></a></td><td style="text-align: center;"><a href="/camright"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/right.png" alt=""></a></td></tr><tr><td style="text-align: center;"></td><td style="text-align: center;"><a href="/camdown"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/back.png"></a></td><td style="text-align: center;"></td></tr>
+</tbody>
+</table>
         <script>
             document.getElementById("led-status").innerHTML="{}";
         </script>
