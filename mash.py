@@ -55,7 +55,7 @@ class MyServer(BaseHTTPRequestHandler):
            <table style="height: 100%; margin-left: auto; margin-right: auto; width: 100%;" cellpadding="0">
            <tbody>
            <tr>
-           <td style="width: 376.267px; text-align: center;"><img class="shrinkToFit overflowingVertical" src="http://192.168.240.14/potato/images/images/matrix.jpg" alt="No Stream" height="90%" width="90%"></td>
+           <td style="width: 376.267px; text-align: center;"><img class="shrinkToFit overflowingVertical" src="http://192.168.240.14/potato/images/matrix.jpg" alt="No Stream" height="90%" width="90%"></td>
            <td style="width: 364.733px;">
            <table style="width: 156px; height: 156px; text-align: left; margin-left: auto; margin-right: auto;">
            <tbody>
