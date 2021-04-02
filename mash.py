@@ -70,13 +70,13 @@ class MyServer(BaseHTTPRequestHandler):
            <td style="width: 27.45px; text-align: center;">&nbsp;</td>
            </tr>
            <tr style="text-align: right;">
-           <td style="width: 18.7667px; text-align: center;"><a href="/left"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/images/left.png" alt="" hspace="0" vspace="0"></a></td>
-           <td style="width: 18.7833px; text-align: center;"><a href="/stop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/images/stop.png" alt=""></a></td>
-           <td style="width: 27.45px; text-align: center;"><a href="/right"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/images/right.png" alt=""></a></td>
+           <td style="width: 18.7667px; text-align: center;"><a href="/left"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/left.png" alt="" hspace="0" vspace="0"></a></td>
+           <td style="width: 18.7833px; text-align: center;"><a href="/stop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/images/stop.png" alt=""></a></td>
+           <td style="width: 27.45px; text-align: center;"><a href="/right"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.14/potato/mages/right.png" alt=""></a></td>
            </tr>
            <tr style="text-align: center;">
            <td style="width: 18.7667px;">&nbsp;</td>
-           <td style="width: 18.7833px; text-align: center;"><a href="/back"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/images/back.png"></a></td>
+           <td style="width: 18.7833px; text-align: center;"><a href="/back"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/back.png"></a></td>
            <td style="width: 27.45px; text-align: center;">&nbsp;</td>
            </tr>
            <tr>
