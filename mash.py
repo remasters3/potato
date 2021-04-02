@@ -37,9 +37,9 @@ class MyServer(BaseHTTPRequestHandler):
            <body style="width:960px; margin: 20px auto;">
            <h1>MAsh PytAto!</h1>
            <p>Current GPU temperature is {}</p>
-           <p>Turn LED: <a href="/forward">^</a></p>
-           <p>Turn LED: <a href="/left"><</a> <a href="/right">></a></p>
-           <p>Turn LED: <a href="/back">V</a></p>
+           <p>Turn LED: <a href="/forward">-^-</a></p>
+           <p>Turn LED: <a href="/left"><</a> <a href="/stop">O</a></p> <a href="/right">></a></p>
+           <p>Turn LED: <a href="/back">-V-</a></p>
            <div id="led-status"></div>
            <script>
                document.getElementById("led-status").innerHTML="{}";
@@ -69,6 +69,9 @@ class MyServer(BaseHTTPRequestHandler):
             movment.allstop(0)
             movment.TurnRight(0,power)
             status='RIGHT'
+        elif self.path=='/stop':
+            movment.allstop(0)
+            status='STOP'
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
