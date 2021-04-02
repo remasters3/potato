@@ -60,7 +60,7 @@ class MyServer(BaseHTTPRequestHandler):
         </tr>
         <tr>
         <td></td>
-        <td>
+        <td style="text-align: center;">
         <div id="led-status"></div>
         </td>
         <td></td>
