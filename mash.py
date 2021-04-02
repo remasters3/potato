@@ -35,9 +35,11 @@ class MyServer(BaseHTTPRequestHandler):
         html = '''
            <html>
            <body style="width:960px; margin: 20px auto;">
-           <h1>Welcome to my Raspberry Pi</h1>
+           <h1>MAsh PytAto!</h1>
            <p>Current GPU temperature is {}</p>
-           <p>Turn LED: <a href="/on">On</a> <a href="/off">Off</a></p>
+           <p>Turn LED: <a href="/forward">^</a></p>
+           <p>Turn LED: <a href="/left"><</a> <a href="/right">></a></p>
+           <p>Turn LED: <a href="/back">V</a></p>
            <div id="led-status"></div>
            <script>
                document.getElementById("led-status").innerHTML="{}";
@@ -51,14 +53,22 @@ class MyServer(BaseHTTPRequestHandler):
         power = 100
         if self.path=='/':
             movment.allstop(0)
-        elif self.path=='/on':
+        elif self.path=='/forward':
             movment.allstop(0)
             movment.forward(0,power)
-            status='LED is On'
-        elif self.path=='/off':
+            status='FORWARD'
+        elif self.path=='/back':
             movment.allstop(0)
             movment.backwards(0,power)
-            status='LED is Off'
+            status='BACK'
+        elif self.path=='/left':
+            movment.allstop(0)
+            movment.TurnLeft(0,power)
+            status='LEFT'
+        elif self.path=='/right':
+            movment.allstop(0)
+            movment.TurnRight(0,power)
+            status='RIGHT'
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
