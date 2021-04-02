@@ -1,3 +1,11 @@
+import time
+import curses
+from os import system
+import movment as movment
+import sonar as sonar
+import lights as lights
+import psounds as psounds
+## -above this is edit - ##
 import RPi.GPIO as GPIO
 import os
 from time import sleep
@@ -40,15 +48,14 @@ class MyServer(BaseHTTPRequestHandler):
         temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
         self.do_HEAD()
         status = ''
+        power = 100
         if self.path=='/':
-            GPIO.setmode(GPIO.BCM)
-            GPIO.setwarnings(False)
-            GPIO.setup(17, GPIO.OUT)
+            movment.allstop(0)
         elif self.path=='/on':
-            GPIO.output(17, GPIO.HIGH)
+            movment.forward(0,power)
             status='LED is On'
         elif self.path=='/off':
-            GPIO.output(17, GPIO.LOW)
+            movment.backwards(0,power)
             status='LED is Off'
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
