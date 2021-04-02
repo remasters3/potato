@@ -36,10 +36,12 @@ class MyServer(BaseHTTPRequestHandler):
            <html>
            <body style="width:960px; margin: 20px auto;">
            <h1>MAsh PytAto!</h1>
-           <p>Current GPU temperature is {}</p>
-           <p><a href="/forward">  -^-</a></p>
-           <p><a href="/left"><</a> <a href="/stop">O</a> <a href="/right">></a></p>
-           <p><a href="/back">  -V-</a></p>
+           <p>
+           Current GPU temperature is {}
+           <br><a href="/forward">-^-</a>
+           <br><a href="/left"><</a> <a href="/stop">O</a> <a href="/right">></a>
+           <br><a href="/back">-V-</a>
+           </p>
            <div id="led-status"></div>
            <script>
                document.getElementById("led-status").innerHTML="{}";
