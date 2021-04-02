@@ -53,7 +53,7 @@ class MyServer(BaseHTTPRequestHandler):
         <html>
         <head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title></title></head>
         <body>
-        <table style="width: 156px; height: 156px; text-align: left; margin-left: auto; margin-right: auto;">
+        <table style="width: 156px; height: 156px; text-align: left; margin-left:0px; margin-right:0px;">
         <tbody>
         <tr>
         <td></td>
@@ -62,7 +62,7 @@ class MyServer(BaseHTTPRequestHandler):
         </tr>
         <tr>
         <td style="width: 18.7667px; text-align: center;">&nbsp;</td>
-        <td style="width: 18.7833px; text-align: center;"><a href="/forward"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/forward.png"></a></td>
+        <td style="width: 18.7833px; text-align: center;"><a href="/forward" ><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.14/potato/images/forward.png"></a></td>
         <td style="width: 27.45px; text-align: center;">&nbsp;</td>
         </tr>
         <tr style="text-align: right;">
