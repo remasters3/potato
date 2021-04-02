@@ -32,32 +32,15 @@ class MyServer(BaseHTTPRequestHandler):
         """ do_GET() can be tested using curl command
             'curl http://server-ip-address:port'
         """
-#         html = '''
-#            <html>
-#            <body style="width:960px; margin: 20px auto;">
-#            <h1>MAsh</h1>
-#            <p>
-#            TEMP{}
-#            <br>----<a href="/forward">^</a>----
-#            <br><a href="/left"><</a>--<a href="/stop">O</a>--<a href="/right">></a>
-#            <br>----<a href="/back">V</a>----
-#            </p>
-#            <div id="led-status"></div>
-#            <script>
-#                document.getElementById("led-status").innerHTML="{}";
-#            </script>
-#            </body>
-#            </html>
-#         '''
         html = '''
         <html>
         <head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title></title></head>
         <body>
-        <table style="width: 156px; height: 156px; text-align: right;">
+        <table style="width: 156px; height: 156px;">
         <tbody>
         <tr>
         <td></td>
-        <td>TEMP{}</td>
+        <td>TEMP:{}</td>
         <td></td>
         </tr>
         <tr>
