@@ -39,7 +39,7 @@ class MyServer(BaseHTTPRequestHandler):
            <p>
            Current GPU temperature is {}
            <br>----<a href="/forward">^</a>----
-           <br><a href="/left"><</a>-<a href="/stop">O</a>-<a href="/right">></a>
+           <br><a href="/left"><</a>--<a href="/stop">O</a>--<a href="/right">></a>
            <br>----<a href="/back">V</a>----
            </p>
            <div id="led-status"></div>
