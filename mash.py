@@ -36,7 +36,7 @@ class MyServer(BaseHTTPRequestHandler):
         <html>
         <head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title></title></head>
         <body>
-        <table style="width: 156px; height: 156px;">
+        <table style="width: 156px; height: 156px; text-align: centre;">
         <tbody>
         <tr>
         <td></td>
