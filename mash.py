@@ -107,6 +107,10 @@ class MyServer(BaseHTTPRequestHandler):
 
         elif self.path=='/camstop':
             status='CENTRE'
+            agl = 90
+            pan = 90
+            movment.servoa(agl)
+            movment.servob(pan)
 
         elif self.path=='/camup':
             status='PAN UP'
