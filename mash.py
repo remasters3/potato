@@ -76,11 +76,35 @@ class MyServer(BaseHTTPRequestHandler):
         temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
         self.do_HEAD()
         status = ''
-        global agl
-        global pan
         power = 100
         agl = 90
         pan = 90
+        def pancam(panaction):
+        # 0=pancentre 1=panup 2=pandown 3=panleft 4=panright
+            global agl
+            global pan
+            if panaction == 0:
+                agl = 90
+                pan = 90
+                movment.servoa(agl)
+                movment.servob(pan)
+
+            elif panaction == 1 and agl > 56:
+                agl = agl-12
+                movment.servoa(agl)
+
+            elif panaction == 2 and agl < 138:
+                agl = agl+12
+                movment.servoa(agl)
+            
+            elif panaction == 3 and pan < 180:
+                pan = pan+30
+                movment.servob(pan)
+
+            elif panaction == 4 and pan > 0:
+                pan = pan-30
+                movment.servob(pan)
+
         if self.path=='/':
             movment.allstop(0)
         elif self.path=='/forward':
@@ -109,35 +133,25 @@ class MyServer(BaseHTTPRequestHandler):
 
         elif self.path=='/camstop':
             status='CENTRE'
-            agl = 90
-            pan = 90
-            movment.servoa(agl)
-            movment.servob(pan)
+            pancam(0)
 
         elif self.path=='/camup':
             status='PAN UP'
-            if agl > 56:
-                agl = agl-12
-                movment.servoa(agl)
+            pancam(1)
 
             
         elif self.path=='/camdown':
             status='PAN DOWN'
-            if agl < 138:
-                agl = agl+12
-                movment.servoa(agl)
+            pancam(2)
             
         elif self.path=='/camleft':
             status='PAN LEFT'
-            if pan < 180:
-                pan = pan+30
-                movment.servob(pan)
+            pancam(3)
             
         elif self.path=='/camright':
             status='PAN RIGHT'
-            if pan > 0:
-                pan = pan-30
-                movment.servob(pan)            
+            pancam(4)
+            
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
