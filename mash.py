@@ -34,7 +34,7 @@ class MyServer(BaseHTTPRequestHandler):
         """
         html = '''
         <html>
-        <head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title></title></head>
+        <head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>"Mash Potato"</title></head>
         <body>
         <table style="width: 156px; height: 156px;"> <tbody>
         <tr>
