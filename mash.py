@@ -80,7 +80,7 @@ class MyServer(BaseHTTPRequestHandler):
         agl = 90
         pan = 90
         def pancam(panaction):
-        # 0=pancentre 1=panup 2=pandown 3=panleft 4=panright
+        # 0=pancentre 1=panup 2=pandown 3=panright 4=panleft 
             global agl
             global pan
             if panaction == 0:
@@ -93,10 +93,10 @@ class MyServer(BaseHTTPRequestHandler):
             elif panaction == 2:
                 movment.servoa(140)
             
-            elif panaction == 3:
+            elif panaction == 4:
                 movment.servob(40)
 
-            elif panaction == 4:
+            elif panaction == 3:
                 movment.servob(140)
 
         if self.path=='/':
