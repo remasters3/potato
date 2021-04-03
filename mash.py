@@ -87,20 +87,16 @@ class MyServer(BaseHTTPRequestHandler):
                 movment.servoa(90)
                 movment.servob(90)
 
-            elif panaction == 1 and agl > 0:
-                agl = agl-12
+            elif panaction == 1:
                 movment.servoa(0)
 
-            elif panaction == 2 and agl < 180:
-                agl = agl+12
+            elif panaction == 2:
                 movment.servoa(180)
             
-            elif panaction == 3 and pan < 180:
-                pan = pan+30
+            elif panaction == 3:
                 movment.servob(0)
 
-            elif panaction == 4 and pan > 0:
-                pan = pan-30
+            elif panaction == 4:
                 movment.servob(180)
 
         if self.path=='/':
