@@ -107,6 +107,8 @@ class MyServer(BaseHTTPRequestHandler):
 
         elif self.path=='/camstop':
             status='CENTRE'
+            global agl
+            global pan
             agl = 90
             pan = 90
             movment.servoa(agl)
@@ -114,20 +116,36 @@ class MyServer(BaseHTTPRequestHandler):
 
         elif self.path=='/camup':
             status='PAN UP'
-            movment.servoa(40)
+            global agl
+            global pan
+            if agl > 56:
+                agl = agl-12
+                movment.servoa(agl)
 
             
         elif self.path=='/camdown':
             status='PAN DOWN'
-            movment.servoa(140)
+            global agl
+            global pan
+            if agl < 138:
+                agl = agl+12
+                movment.servoa(agl)
             
         elif self.path=='/camleft':
             status='PAN LEFT'
-            movment.servob(180)
+            global agl
+            global pan
+            if pan < 180:
+                pan = pan+30
+                movment.servob(pan)
             
         elif self.path=='/camright':
             status='PAN RIGHT'
-            movment.servob(0)       
+            global agl
+            global pan
+            if pan > 0:
+                pan = pan-30
+                movment.servob(pan)            
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
