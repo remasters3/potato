@@ -88,16 +88,16 @@ class MyServer(BaseHTTPRequestHandler):
                 movment.servob(90)
 
             elif panaction == 1:
-                movment.servoa(0)
+                movment.servoa(40)
 
             elif panaction == 2:
-                movment.servoa(180)
+                movment.servoa(140)
             
             elif panaction == 3:
-                movment.servob(0)
+                movment.servob(40)
 
             elif panaction == 4:
-                movment.servob(180)
+                movment.servob(140)
 
         if self.path=='/':
             movment.allstop(0)
