@@ -60,7 +60,7 @@ class MyServer(BaseHTTPRequestHandler):
         <tr>
         <td style="text-align: center;"></td>
         <td style="text-align: center;">
-        <div id="led-status"></div>
+        <div id="last-action"></div>
         </td>
         <td style="text-align: center;"></td>
         </tr>
@@ -68,7 +68,7 @@ class MyServer(BaseHTTPRequestHandler):
         </tbody>
         </table>
         <script>
-            document.getElementById("led-status").innerHTML="{}";
+            document.getElementById("last-action").innerHTML="{}";
         </script>
         </body>
         </html>
