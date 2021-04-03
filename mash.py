@@ -38,14 +38,9 @@ class MyServer(BaseHTTPRequestHandler):
         <body>
         <table style="width: 156px; height: 156px;"> <tbody>
         <tr>
-        <td style="text-align: center;"><div id="last-action"></div></td>
-        <td style="text-align: center;">T:{}</td>
-        <td style="text-align: center;"></td>
-        </tr>
-        <tr>
-        <td style="width: 18.7667px; text-align: center;">&nbsp;</td>
+        <td style="width: 18.7667px; text-align: center;"><div id="last-action"></div>&nbsp;</td>
         <td style="width: 18.7833px; text-align: center;"><a href="/forward"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.18/potato/images/forward.png"></a></td>
-        <td style="width: 27.45px; text-align: center;">&nbsp;</td>
+        <td style="width: 27.45px; text-align: center;">T:{}&nbsp;</td>
         </tr>
         <tr style="text-align: right;">
         <td style="width: 18.7667px; text-align: center;"><a href="/left"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.18/potato/images/left.png" alt="" hspace="0" vspace="0"></a></td>
