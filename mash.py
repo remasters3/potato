@@ -11,7 +11,7 @@ import os
 from time import sleep
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-host_name = '192.168.240.14'  # Change this to your Raspberry Pi IP address
+host_name = '192.168.240.18'  # Change this to your Raspberry Pi IP address
 host_port = 8000
 
 
