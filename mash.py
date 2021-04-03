@@ -38,8 +38,8 @@ class MyServer(BaseHTTPRequestHandler):
         <body>
         <table style="width: 156px; height: 156px;"> <tbody>
         <tr>
-        <td style="text-align: center;"></td>
-        <td style="text-align: center;">TEMP:{}</td>
+        <td style="text-align: center;"><div id="last-action"></div></td>
+        <td style="text-align: center;">T:{}</td>
         <td style="text-align: center;"></td>
         </tr>
         <tr>
@@ -60,7 +60,6 @@ class MyServer(BaseHTTPRequestHandler):
         <tr>
         <td style="text-align: center;"></td>
         <td style="text-align: center;">
-        <div id="last-action"></div>
         </td>
         <td style="text-align: center;"></td>
         </tr>
