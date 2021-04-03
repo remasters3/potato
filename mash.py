@@ -107,8 +107,6 @@ class MyServer(BaseHTTPRequestHandler):
 
         elif self.path=='/camstop':
             status='CENTRE'
-            global agl
-            global pan
             agl = 90
             pan = 90
             movment.servoa(agl)
