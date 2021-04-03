@@ -84,24 +84,24 @@ class MyServer(BaseHTTPRequestHandler):
             global agl
             global pan
             if panaction == 0:
-                movment.servoa(agl)
-                movment.servob(pan)
+                movment.servoa(90)
+                movment.servob(90)
 
-            elif panaction == 1 and agl > 56:
+            elif panaction == 1 and agl > 0:
                 agl = agl-12
-                movment.servoa(agl)
+                movment.servoa(0)
 
-            elif panaction == 2 and agl < 138:
+            elif panaction == 2 and agl < 180:
                 agl = agl+12
-                movment.servoa(agl)
+                movment.servoa(180)
             
             elif panaction == 3 and pan < 180:
                 pan = pan+30
-                movment.servob(pan)
+                movment.servob(0)
 
             elif panaction == 4 and pan > 0:
                 pan = pan-30
-                movment.servob(pan)
+                movment.servob(180)
 
         if self.path=='/':
             movment.allstop(0)
