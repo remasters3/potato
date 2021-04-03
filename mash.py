@@ -114,20 +114,20 @@ class MyServer(BaseHTTPRequestHandler):
 
         elif self.path=='/camup':
             status='PAN UP'
-            movment.servoa(50)
+            movment.servoa(40)
 
             
         elif self.path=='/camdown':
             status='PAN DOWN'
-            movment.servoa(130)
+            movment.servoa(140)
             
         elif self.path=='/camleft':
             status='PAN LEFT'
-            movment.servob(130)
+            movment.servob(140)
             
         elif self.path=='/camright':
             status='PAN RIGHT'
-            movment.servob(50)       
+            movment.servob(40)       
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
