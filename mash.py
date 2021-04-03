@@ -116,8 +116,6 @@ class MyServer(BaseHTTPRequestHandler):
 
         elif self.path=='/camup':
             status='PAN UP'
-            global agl
-            global pan
             if agl > 56:
                 agl = agl-12
                 movment.servoa(agl)
@@ -125,24 +123,18 @@ class MyServer(BaseHTTPRequestHandler):
             
         elif self.path=='/camdown':
             status='PAN DOWN'
-            global agl
-            global pan
             if agl < 138:
                 agl = agl+12
                 movment.servoa(agl)
             
         elif self.path=='/camleft':
             status='PAN LEFT'
-            global agl
-            global pan
             if pan < 180:
                 pan = pan+30
                 movment.servob(pan)
             
         elif self.path=='/camright':
             status='PAN RIGHT'
-            global agl
-            global pan
             if pan > 0:
                 pan = pan-30
                 movment.servob(pan)            
