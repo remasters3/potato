@@ -84,8 +84,6 @@ class MyServer(BaseHTTPRequestHandler):
             global agl
             global pan
             if panaction == 0:
-                agl = 90
-                pan = 90
                 movment.servoa(agl)
                 movment.servob(pan)
 
