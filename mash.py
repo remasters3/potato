@@ -104,7 +104,7 @@ class MyServer(BaseHTTPRequestHandler):
         elif self.path=='/forward':
             movment.allstop(0)
             movment.forward(0,power)
-            status='GO^
+            status='GO^'
 
         elif self.path=='/back':
             movment.allstop(0)
