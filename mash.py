@@ -100,49 +100,50 @@ class MyServer(BaseHTTPRequestHandler):
 
         if self.path=='/':
             movment.allstop(0)
+            status='STOP'
         elif self.path=='/forward':
             movment.allstop(0)
             movment.forward(0,power)
-            status='FORWARD'
+            status='GO^
 
         elif self.path=='/back':
             movment.allstop(0)
             movment.backwards(0,power)
-            status='BACK'
+            status='GOv'
 
         elif self.path=='/left':
             movment.allstop(0)
             movment.TurnLeft(0,power)
-            status='LEFT'
+            status='GO<'
 
         elif self.path=='/right':
             movment.allstop(0)
             movment.TurnRight(0,power)
-            status='RIGHT'
+            status='GO>'
 
         elif self.path=='/stop':
             movment.allstop(0)
             status='STOP'
 
         elif self.path=='/camstop':
-            status='CENTRE'
+            status='CAM'
             pancam(0)
 
         elif self.path=='/camup':
-            status='PAN UP'
+            status='CAM^'
             pancam(1)
 
             
         elif self.path=='/camdown':
-            status='PAN DOWN'
+            status='CAMv'
             pancam(2)
             
         elif self.path=='/camleft':
-            status='PAN LEFT'
+            status='CAM<'
             pancam(3)
             
         elif self.path=='/camright':
-            status='PAN RIGHT'
+            status='CAM>'
             pancam(4)
             
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
