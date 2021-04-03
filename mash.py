@@ -123,11 +123,11 @@ class MyServer(BaseHTTPRequestHandler):
             
         elif self.path=='/camleft':
             status='PAN LEFT'
-            movment.servob(140)
+            movment.servob(180)
             
         elif self.path=='/camright':
             status='PAN RIGHT'
-            movment.servob(40)       
+            movment.servob(0)       
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
