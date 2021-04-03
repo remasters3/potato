@@ -98,22 +98,17 @@ class MyServer(BaseHTTPRequestHandler):
             movment.allstop(0)
             status='STOP'
         elif self.path=='/camstop':
-            movment.allstop(0)
             status='CENTRE'
         elif self.path=='/camup':
-            movment.allstop(0)
             status='PAN UP'
             
         elif self.path=='/camdown':
-            movment.allstop(0)
             status='PAN DOWN'
             
         elif self.path=='/camleft':
-            movment.allstop(0)
             status='PAN LEFT'
             
         elif self.path=='/camright':
-            movment.allstop(0)
             status='PAN RIGHT'
             
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
