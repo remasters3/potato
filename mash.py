@@ -144,9 +144,8 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         http_server.server_close()
 
-finally:
-    movment.servoa (90)
-    movment.servob (90)
-    system('clear')
-    movment.allstop(0)
-    movment.clearmp()
+movment.servoa (90)
+movment.servob (90)
+system('clear')
+movment.allstop(0)
+movment.clearmp()
