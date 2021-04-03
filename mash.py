@@ -76,6 +76,8 @@ class MyServer(BaseHTTPRequestHandler):
         temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
         self.do_HEAD()
         status = ''
+        global agl
+        global pan
         power = 100
         agl = 90
         pan = 90
