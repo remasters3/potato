@@ -99,7 +99,7 @@ class MyServer(BaseHTTPRequestHandler):
             status='STOP'
         elif self.path=='/camstop':
             movment.allstop(0)
-            status='VIEW CENTRE'
+            status='CENTRE'
         elif self.path=='/camup':
             movment.allstop(0)
             status='PAN UP'
