@@ -147,9 +147,3 @@ if __name__ == '__main__':
         http_server.serve_forever()
     except KeyboardInterrupt:
         http_server.server_close()
-
-movment.servoa (90)
-movment.servob (90)
-system('clear')
-movment.allstop(0)
-movment.clearmp()
