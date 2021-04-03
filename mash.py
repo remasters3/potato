@@ -77,41 +77,61 @@ class MyServer(BaseHTTPRequestHandler):
         self.do_HEAD()
         status = ''
         power = 100
+        agl = 90
+        pan = 90
         if self.path=='/':
             movment.allstop(0)
         elif self.path=='/forward':
             movment.allstop(0)
             movment.forward(0,power)
             status='FORWARD'
+
         elif self.path=='/back':
             movment.allstop(0)
             movment.backwards(0,power)
             status='BACK'
+
         elif self.path=='/left':
             movment.allstop(0)
             movment.TurnLeft(0,power)
             status='LEFT'
+
         elif self.path=='/right':
             movment.allstop(0)
             movment.TurnRight(0,power)
             status='RIGHT'
+
         elif self.path=='/stop':
             movment.allstop(0)
             status='STOP'
+
         elif self.path=='/camstop':
             status='CENTRE'
+
         elif self.path=='/camup':
             status='PAN UP'
+            if agl > 56:
+                agl = agl-12
+                movment.servoa(agl)
+
             
         elif self.path=='/camdown':
             status='PAN DOWN'
+            if agl < 138:
+                agl = agl+12
+                movment.servoa(agl)
             
         elif self.path=='/camleft':
             status='PAN LEFT'
+            if pan < 180:
+                pan = pan+30
+                movment.servob(pan)
             
         elif self.path=='/camright':
             status='PAN RIGHT'
-            
+            if pan > 0:
+                pan = pan-30
+                movment.servob(pan)       
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
@@ -123,3 +143,10 @@ if __name__ == '__main__':
         http_server.serve_forever()
     except KeyboardInterrupt:
         http_server.server_close()
+
+finally:
+    movment.servoa (90)
+    movment.servob (90)
+    system('clear')
+    movment.allstop(0)
+    movment.clearmp()
