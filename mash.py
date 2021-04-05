@@ -197,14 +197,14 @@ buttonshtml = '''
 <table class="buttons-table" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="button-fire"><br>P+</div></a></div></td>
+<td><div class="mash-button"><a href="/powerup"><div class="button-fire"><br>P+</div></a></div></td>
 <td><div class="display-box">P{10}</dev></td>
 <td><div class="mash-button"><a href="/forward"><div class="triangle-up"></div></a></div></td>
 <td>D1</td>
 <td>E1</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="button-fire"><br>P-</div></a></div></td>
+<td><div class="mash-button"><a href="/powerdown"><div class="button-fire"><br>P-</div></a></div></td>
 <td><div class="mash-button"><a href="/left"><div class="triangle-left"></div></a></div></td>
 <td><div class="mash-button"><a href="/stop"><div class="circle"></div></a></div></td>
 <td><div class="mash-button"><a href="/right"><div class="triangle-right"></div></a></div></td>
