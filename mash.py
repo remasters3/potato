@@ -95,6 +95,9 @@ table {
 
 table.buttons-table {
     background-color: #46523C;
+    text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
 }
 
 a {
