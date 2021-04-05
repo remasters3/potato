@@ -219,7 +219,7 @@ buttonshtml = '''
 <td>E2</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="button-fire">A3</div></a></div></td>
+<td><div class="mash-button"><a href="/buttons"><div class="button-fire">A3</div></a></div></td>
 <td>B3</td>
 <td><div class="mash-button"><a href="/back"><div class="triangle-down"></div></a></div></td>
 <td>D3</td>
@@ -227,7 +227,7 @@ buttonshtml = '''
 </tr>
 <tr><td><div class="display-box">-</div></td><td><div class="display-box">FL{8}</div></td><td><div class="display-box">RL{9}</div></td><td><div class="display-box">-</div></td><td><div class="display-box">-</div></td><tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="button-fire">A4</div></a></div></td>
+<td><div class="mash-button"><a href="/buttons"><div class="button-fire">A4</div></a></div></td>
 <td><div class="display-box">P{2}</div></td></td>
 <td><div class="mash-button"><a href="/camup"><div class="triangle-up"></div></div></a></td>
 <td><div class="display-box">T{3}</div></td></td>
