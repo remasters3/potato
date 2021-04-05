@@ -38,7 +38,7 @@ mainhtml = '''
 <html>
 <head><style>{0}</style>
 <body>
-<div class ="rectangle">place holder</div>
+<div class ="rectangle"> <img src="http://{11}:8081/0/stream" width="1024" height="768"> </div>
 </body>
 <html>
 '''
@@ -276,7 +276,6 @@ indexhtml = '''
 <div class="main-box-format">
 <iframe id="scaled-frame"  src="/main" name="CamFrame" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen seamless></iframe>
 </div>
- <img src="http://{11}:8081/0/stream" width="1024" height="768"> 
 <div class="buttons-box-format">
 <iframe src="/buttons" name="ControlFrame" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen seamless></iframe>
 </div>
