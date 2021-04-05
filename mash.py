@@ -198,7 +198,7 @@ buttonshtml = '''
 <tbody>
 <tr>
 <td><div class="mash-button"><a href="/A1"><div class="button-fire"><br>P+</div></a></div></td>
-<td>B1</td>
+<td><div class="display-box">P{10}</dev></td>
 <td><div class="mash-button"><a href="/forward"><div class="triangle-up"></div></a></div></td>
 <td>D1</td>
 <td>E1</td>
