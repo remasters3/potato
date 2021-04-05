@@ -355,13 +355,19 @@ class myHandler(BaseHTTPRequestHandler):
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
         
         elif self.path=='/powerup':
-            status='FIRE'
-            power = power+10
+            if power < 90
+                status='power+'
+                power = power+10
+            else:
+                status 'MAX'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
             
         elif self.path=='/powerdown':
-            status='FIRE'
-            power = power-10
+            if power > 10
+                status='power-'
+                power = power-10
+            else:
+                status 'MAX'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/radar':
