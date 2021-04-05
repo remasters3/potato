@@ -1,154 +1,453 @@
+#!/usr/bin/python
 import time
-import curses
 from os import system
 import movment as movment
 import sonar as sonar
 import lights as lights
 import psounds as psounds
-## -above this is edit - ##
-import RPi.GPIO as GPIO
 import os
 from time import sleep
+
+
+
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from os import curdir, sep
+import socket
 
-host_name = '192.168.240.18'  # Change this to your Raspberry Pi IP address
-host_port = 8000
+PORT_NUMBER = 80
+hostname = socket.gethostname()
+host_name = socket.gethostbyname(hostname)
+mainstyle = '''
+td {
+    text-align:center;
+    color: white;
+}
+img {
+    vertical-align:middle;
+}
+
+.rectangle {
+  height: 768px;
+  width: 1024px;
+  background-color: #46523C;
+}
+
+'''
+mainhtml = '''
+<html>
+<head><style>{0}</style>
+<body>
+<div class ="rectangle">place holder</div>
+</body>
+<html>
+'''
+teststyle = '''
+td {
+    text-align:center;
+    color: white;
+}
+.mash-button {
+    height:50px; 
+    width:50px; 
+}
+table {
+    text-align:centre;
+}
+'''
+testhtml = ''' 
+<html>
+<head><style>{0}</style></head>
+<body>
+<h1>{1}</h1> 
+<br> 2 - PAN:{2} 
+<br> 3 - TILT:{3}
+<br> 4 - FRONT RADAR:{4}
+<br> 5 - REAR RADAR:{5}
+<br> 6 - LEFT RADAR:{6}
+<br> 7 - RIGHT RADAR:{7}
+<br> 8 - FRONT LIGHT:{8}
+<br> 9 - REAR RADAR:{9}
+<br> 10 - POWER:{10}
+<br>
+</body>
+</html>
+'''
+buttonstyle = ''' 
+td {
+    text-align:center;
+    color: #46523C;
+}
+.mash-button {
+    height:50px; 
+    width:50px; 
+}
+table {
+    text-align:centre;
+}
+
+table.buttons-table {
+    background-color: #46523C;
+}
+
+a {
+    color: #46523C;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-bottom: 50px solid #cacfd2;
+}
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-top: 50px solid #cacfd2;
+}
+.triangle-left {
+	width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-right: 50px solid #cacfd2;
+	border-bottom: 25px solid transparent;
+}
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-left: 50px solid #cacfd2;
+	border-bottom: 25px solid transparent;
+}
+
+.circle {
+  height: 50px;
+  width: 50px;
+  background-color: #cacfd2;
+  border-radius: 50%;
+}
+
+.parallelogram {
+	width: 25px;
+	height: 25px;
+	transform: skew(10deg);
+	background: #cacfd2;
+}
 
 
-class MyServer(BaseHTTPRequestHandler):
-    """ A special implementation of BaseHTTPRequestHander for reading data from
-        and control GPIO of a Raspberry Pi
-    """
+    
+'''
 
-    def do_HEAD(self):
-        """ do_HEAD() can be tested use curl command
-            'curl -I http://server-ip-address:port'
-        """
-        self.send_response(200)
-        self.send_header('Content-type', 'text/html')
-        self.end_headers()
+buttonshtml = '''
+<html><head><style>{0}</style><title></title></head><body>
+<table class="buttons-table" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A1</div></a></div></td>
+<td>B1</td>
+<td><div class="mash-button"><a href="/forward"><div class="triangle-up"></div></a></div></td>
+<td>D1</td>
+<td>E1</td>
+</tr>
+<tr>
+<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A2</div></a></div></td>
+<td><div class="mash-button"><a href="/left"><div class="triangle-left"></div></a></div></td>
+<td><div class="mash-button"><a href="/stop"><div class="circle"></div></a></div></td>
+<td><div class="mash-button"><a href="/right"><div class="triangle-right"></div></a></div></td>
+<td>E2</td>
+</tr>
+<tr>
+<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A3</div></a></div></td>
+<td>B3</td>
+<td><div class="mash-button"><a href="/back"><div class="triangle-down"></div></a></div></td>
+<td>D3</td>
+<td>E3</td>
+</tr>
+<tr><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><tr>
+<tr>
+<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A4</div></a></div></td>
+<td>B4</td>
+<td><div class="mash-button"><a href="/camup"><div class="triangle-up"></div></div></a></td>
+<td>D4</td>
+<td>E4</td>
+</tr>
+<tr>
+<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A5</div></a></div></td>
+<td><div class="mash-button"><a href="/camleft"><div class="triangle-left"></div></div></a></td>
+<td><div class="mash-button"><a href="/camstop"><div class="circle"></div></div></a></td>
+<td><div class="mash-button"><a href="/camright"><div class="triangle-right"></div></div></a></td>
+<td>E5</td>
+</tr>
+<tr>
+<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A6</div></a></div></td>
+<td>B6</td>
+<td><div class="mash-button"><a href="/camdown"><div class="triangle-down"></div></div></a></td>
+<td>D6</td>
+<td>E6</td>
+</tr>
+<tr>
+<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A7</div></a></div></td>
+<td>B7</td>
+<td>C7</td>
+<td>D7</td>
+<td>E7</td>
+</tr>
+</tbody>
+</table>
+|{1}| 
+<br> 2 - PAN:{2} 
+<br> 3 - TILT:{3}
+<br> 4 - FRONT RADAR:{4}
+<br> 5 - REAR RADAR:{5}
+<br> 6 - LEFT RADAR:{6}
+<br> 7 - RIGHT RADAR:{7}
+<br> 8 - FRONT LIGHT:{8}
+<br> 9 - REAR LIGHT:{9}
+<br> 10 - POWER:{10}
+</body></html>
+'''
+indexstyle = '''
+ .mash-wrapper {
+        max-width: 100%;
+        position: relative;
+        margin: 0 auto;
+        border: 0px solid pink;
+        border: 0px solid black;
+   
+    }
 
+    .main-box-format {
+        float: left;
+        height: 768px;
+        width: 1024px;
+        border: 1px groove black;
+        margin: 0px;
+        
+    }
+    
+    .buttons-box-format {
+        float: left;
+        height: 100%;
+        width: 25%;
+        border: 0px groove black;
+        margin: 0px;
+        
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+'''
+
+indexhtml = '''
+<html>
+<head><style>{0}</style></head>
+<body>
+<div> 
+<div class="mash-wrapper">
+<div class="main-box-format">
+<iframe id="scaled-frame"  src="/main" name="CamFrame" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen seamless></iframe>
+</div>
+<div class="buttons-box-format">
+<iframe src="/buttons" name="ControlFrame" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen seamless></iframe>
+</div>
+</div> 
+</div> 
+
+</body>
+</html>
+'''
+power = 100
+status = 'system message'
+campos = [90,90]
+radarping = [1,2,3,4]
+lightstatus = [0,0]
+msg = "message 1"
+testmsg = "mic check"
+
+#This class will handles any incoming request from
+#the browser 
+class myHandler(BaseHTTPRequestHandler):
+    #Handler for the GET requests
     def do_GET(self):
-        """ do_GET() can be tested using curl command
-            'curl http://server-ip-address:port'
-        """
-        html = '''
-        <html>
-        <head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>"Mash Potato"</title></head>
-        <body>
-        <table style="width: 156px; height: 156px;"> <tbody>
-        <tr>
-        <td style="width: 18.7667px; text-align: center;"><div id="last-action"></div>&nbsp;</td>
-        <td style="width: 18.7833px; text-align: center;"><a href="/forward"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.18/potato/images/forward.png"></a></td>
-        <td style="width: 27.45px; text-align: center;">T:{}&nbsp;</td>
-        </tr>
-        <tr style="text-align: right;">
-        <td style="width: 18.7667px; text-align: center;"><a href="/left"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.18/potato/images/left.png" alt="" hspace="0" vspace="0"></a></td>
-        <td style="width: 18.7833px; text-align: center;"><a href="/stop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.18/potato/images/stop.png" alt=""></a></td>
-        <td style="width: 27.45px; text-align: center;"><a href="/right"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.18/potato/images/right.png" alt=""></a></td>
-        </tr>
-        <tr style="text-align: center;">
-        <td style="width: 18.7667px; text-align: center;">&nbsp;</td>
-        <td style="width: 18.7833px; text-align: center;"><a href="/back"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.18/potato/images/back.png"></a></td>
-        <td style="width: 27.45px; text-align: center;">&nbsp;</td>
-        </tr>
-        <tr>
-        <td style="text-align: center;"></td>
-        <td style="text-align: center;">
-        </td>
-        <td style="text-align: center;"></td>
-        </tr>
-        <tr><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td></tr><tr><td style="height: 50px; width: 50px; text-align: center; vertical-align: middle;"></td><td style="height: 50px; width: 50px; text-align: center;"><a href="/camup"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.18/potato/images/forward.png"></a></td><td style="height: 50px; width: 50px; text-align: center;"></td></tr><tr><td style="height: 50px; width: 50px; text-align: center;"><a href="/camleft"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.18/potato/images/left.png" alt="" hspace="0" vspace="0"></a></td><td style="text-align: center;"><a href="/camstop"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.18/potato/images/stop.png" alt=""></a></td><td style="text-align: center;"><a href="/camright"><img style="border: 0px solid ; width: 50px; height: 50px;" src="http://192.168.240.18/potato/images/right.png" alt=""></a></td></tr><tr><td style="text-align: center;"></td><td style="text-align: center;"><a href="/camdown"><img style="border: 0px solid ; width: 50px; height: 50px;" alt="" src="http://192.168.240.18/potato/images/back.png"></a></td><td style="text-align: center;"></td></tr>
-        </tbody>
-        </table>
-        <script>
-            document.getElementById("last-action").innerHTML="{}";
-        </script>
-        </body>
-        </html>
-        '''
-        temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
-        self.do_HEAD()
-        status = ''
-        power = 100
-        agl = 90
-        pan = 90
-        def pancam(panaction):
-        # 0=pancentre 1=panup 2=pandown 3=panright 4=panleft 
-            global agl
-            global pan
-            if panaction == 0:
-                movment.servoa(90)
-                movment.servob(90)
-
-            elif panaction == 1:
-                movment.servoa(40)
-
-            elif panaction == 2:
-                movment.servoa(140)
+        global power
+        global status
+        global campos
+        global radarping
+        global lightstatus
+        def http_reply(html,css,sstatus,cpos,rping,lstatus,pwr):
+            self.wfile.write(html.format(css,sstatus,campos[0],campos[1],radarping[0],radarping[1],radarping[2],radarping[3],lightstatus[0],lightstatus[1],pwr).encode("utf-8"))
+  
+        if self.path=="/":
+            http_reply(indexhtml,indexstyle,status,campos,radarping,lightstatus,power)
             
-            elif panaction == 4:
-                movment.servob(40)
+        elif self.path=="/buttons":
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            
+        elif self.path=="/test":
+            http_reply(testhtml,teststyle,status,campos,radarping,lightstatus,power)
+            
+        elif self.path=="/main":
+            http_reply(mainhtml,mainstyle,status,campos,radarping,lightstatus,power)
+            
+        elif self.path=='/A1':
+            status='FIRE'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
-            elif panaction == 3:
-                movment.servob(140)
-
-        if self.path=='/':
-            movment.allstop(0)
-            status='STOP'
         elif self.path=='/forward':
+            status='GO^'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
             movment.allstop(0)
             movment.forward(0,power)
-            status='GO^'
+            
 
         elif self.path=='/back':
             movment.allstop(0)
             movment.backwards(0,power)
             status='GOv'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/left':
             movment.allstop(0)
             movment.TurnLeft(0,power)
             status='GO<'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/right':
             movment.allstop(0)
             movment.TurnRight(0,power)
             status='GO>'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/stop':
             movment.allstop(0)
             status='STOP'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/camstop':
-            status='CAM'
-            pancam(0)
+            status='CAM RESET'
+            campos.clear()
+            campos.insert(0,90)
+            campos.insert(1,90)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/camup':
-            status='CAM^'
-            pancam(1)
+            pan = campos[0]
+            agl = campos[1]
+            if agl > 56:
+                agl = agl-12
+                status='CAM^'
+                campos.pop(1)
+                campos.insert(1,agl)
+                movment.servoa(agl)
+            else:
+                status='MAX'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
-            
         elif self.path=='/camdown':
-            status='CAMv'
-            pancam(2)
+            pan = campos[0]
+            agl = campos[1]
+            if agl < 138:
+                status='CAMV'
+                agl = agl+12
+                campos.pop(1)
+                campos.insert(1,agl)
+                movment.servoa(agl)
+            else:
+                status='MAX'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
             
         elif self.path=='/camleft':
-            status='CAM<'
-            pancam(3)
+            pan = campos[0]
+            agl = campos[1]
+            if pan < 180:
+                status='CAM<'
+                pan = pan+30
+                campos.pop(0)
+                campos.insert(0,pan)
+                movment.servob(pan)
+            else:
+                status='MAX'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
             
         elif self.path=='/camright':
-            status='CAM>'
-            pancam(4)
-            
-        self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
+            pan = campos[0]
+            agl = campos[1]
+            if pan > 0:
+                status='CAM>'
+                pan = pan-30
+                campos.pop(0)
+                campos.insert(0,pan)
+                movment.servob(pan)
+            else:
+                status='MAX'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+
+        try:
+            sendReply = False
+            if self.path.endswith(".html"):
+                mimetype='text/html'
+                sendReply = True
+            if self.path.endswith(".jpg"):
+                mimetype='image/jpg'
+                sendReply = True
+            if self.path.endswith(".png"):
+                mimetype='image/png'
+                sendReply = True
+            if self.path.endswith(".gif"):
+                mimetype='image/gif'
+                sendReply = True
+            if self.path.endswith(".js"):
+                mimetype='application/javascript'
+                sendReply = True
+            if self.path.endswith(".css"):
+                mimetype='text/css'
+                sendReply = True
+
+            if sendReply == True:
+                #Open the static file requested and send it
+                f = open(curdir + sep + self.path, 'rb' ) 
+                self.send_response(200)
+                self.send_header('Content-type',mimetype)
+                self.end_headers()
+                self.wfile.write(f.read())
+                f.close()
+            return
 
 
-if __name__ == '__main__':
-    http_server = HTTPServer((host_name, host_port), MyServer)
-    print("Server Starts - %s:%s" % (host_name, host_port))
+        except IOError:
+            self.send_error(404,'File Not Found: %s' % self.path)
 
-    try:
-        http_server.serve_forever()
-    except KeyboardInterrupt:
-        http_server.server_close()
+try:
+    server = HTTPServer((host_name, PORT_NUMBER), myHandler)
+    print ("http://{0}:{1}".format(host_name,PORT_NUMBER))
+    server.serve_forever()
+
+except KeyboardInterrupt:
+    print ("http://{0}:{1} shutting down".format(host_name,PORT_NUMBER))
+    server.socket.close()
