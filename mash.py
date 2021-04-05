@@ -124,6 +124,8 @@ a:active {
 	border-right: 25px solid transparent;
 	border-bottom: 50px solid #cacfd2;
     text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
 }
 .triangle-down {
 	width: 0;
@@ -132,6 +134,8 @@ a:active {
 	border-right: 25px solid transparent;
 	border-top: 50px solid #cacfd2;
     text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
 }
 .triangle-left {
 	width: 0;
@@ -140,6 +144,8 @@ a:active {
 	border-right: 50px solid #cacfd2;
 	border-bottom: 25px solid transparent;
     text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
 }
 .triangle-right {
 	width: 0;
@@ -148,6 +154,8 @@ a:active {
 	border-left: 50px solid #cacfd2;
 	border-bottom: 25px solid transparent;
     text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
 }
 
 .circle {
@@ -156,6 +164,8 @@ a:active {
   background-color: #cacfd2;
   border-radius: 50%;
   text-align:center;
+  margin-top:auto;
+  margin-bottom:auto;
 }
 
 .parallelogram {
@@ -164,6 +174,8 @@ a:active {
 	transform: skew(10deg);
 	background: #cacfd2;
     text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
 }
 
 
