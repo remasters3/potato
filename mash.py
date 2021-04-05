@@ -355,6 +355,8 @@ class myHandler(BaseHTTPRequestHandler):
             campos.clear()
             campos.insert(0,90)
             campos.insert(1,90)
+            movment.servoa(agl)
+            movment.servob(pan)
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/camup':
