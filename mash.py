@@ -234,7 +234,7 @@ buttonshtml = '''
 <td>E4</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="button-fire">Front<br?light</div></a></div></td>
+<td><div class="mash-button"><a href="/A1"><div class="button-fire">Front<br>light</div></a></div></td>
 <td><div class="mash-button"><a href="/camleft"><div class="triangle-left"></div></div></a></td>
 <td><div class="mash-button"><a href="/camstop"><div class="circle"></div></div></a></td>
 <td><div class="mash-button"><a href="/camright"><div class="triangle-right"></div></div></a></td>
