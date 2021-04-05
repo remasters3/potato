@@ -17,7 +17,7 @@ import socket
 PORT_NUMBER = 80
 # hostname = socket.gethostname()
 # host_name = socket.gethostbyname(hostname)
-host_name = 192.168.240.18
+host_name = '192.168.240.18'
 mainstyle = '''
 td {
     text-align:center;
