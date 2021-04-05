@@ -84,7 +84,10 @@ td {
 }
 .mash-button {
     height:50px; 
-    width:50px; 
+    width:50px;
+    margin-top:auto;
+    margin-bottom:auto;
+    text-align:center;
 }
 table {
     text-align:centre;
