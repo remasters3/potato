@@ -212,7 +212,7 @@ buttonshtml = '''
 <td>D3</td>
 <td>E3</td>
 </tr>
-<tr><td>-</td><td>-</td><td>{1}</td><td>-</td><td>-</td><tr>
+<tr><td>---</td><td>---</td><td>---</td><td>---</td><td>---</td><tr>
 <tr>
 <td><div class="mash-button"><a href="/A1"><div class="parallelogram">A4</div></a></div></td>
 <td>B4</td>
