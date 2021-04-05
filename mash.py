@@ -184,6 +184,13 @@ a:active {
     margin-bottom:auto;
 }
 
+.display-box {
+  width:100%;
+  height:100%;
+  color: #46523C;
+  background-color: #cacfd2;
+}
+
 
     
 '''
@@ -237,10 +244,10 @@ buttonshtml = '''
 </tr>
 <tr>
 <td><div class="mash-button"><a href="/radar"><div class="parallelogram">Radar</div></a></div></td>
-<td>F{4}</td>
-<td>B{5}</td>
-<td>R{6}</td>
-<td>L{7}</td>
+<td><div class="display-box">F{4}</dev></td>
+<td><div class="display-box">B{5}</dev></td>
+<td><div class="display-box">R{6}</dev></td>
+<td><div class="display-box">L{7}</dev></td>
 </tr>
 </tbody>
 </table>
