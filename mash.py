@@ -35,12 +35,17 @@ img {
   background-color: #46523C;
 }
 
+.portrait {
+    height: 100%;
+    width: 100%;
+}
+
 '''
 mainhtml = '''
 <html>
 <head><style>{0}</style>
 <body>
-<img src="http://{11}:8081/0/stream">
+<div class="portait"><img src="http://{11}:8081/0/stream"></div>
 </body>
 <html>
 '''
