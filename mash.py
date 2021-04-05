@@ -315,7 +315,7 @@ indexhtml = '''
 </html>
 '''
 power = 100
-status = 'Potatobot<b>v0.1'
+status = 'Potatobot<b>v0.001'
 campos = [90,90]
 radarping = [999,999,999,999]
 lightstatus = [0,0]
