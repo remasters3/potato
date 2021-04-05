@@ -315,7 +315,7 @@ indexhtml = '''
 </html>
 '''
 power = 100
-status = 'system message'
+status = 'Potatobot<b>v0.1'
 campos = [90,90]
 radarping = [999,999,999,999]
 lightstatus = [0,0]
@@ -383,7 +383,7 @@ class myHandler(BaseHTTPRequestHandler):
                 status='power-'
                 power = power-10
             else:
-                status='MAX'
+                status='MIN'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/radar':
