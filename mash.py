@@ -327,6 +327,11 @@ class myHandler(BaseHTTPRequestHandler):
             
         elif self.path=='/A1':
             status='FIRE'
+            frontdist = sonar.pingFront()
+            reardist = sonar.pingRear()
+            leftdist = sonar.pingLeft()
+            rightdist = sonar.pingRight()
+            radarping = [frontdist,reardist,leftdist,rightdist]
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/forward':
