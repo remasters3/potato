@@ -235,7 +235,7 @@ buttonshtml = '''
 <td>E6</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/radar"><div class="parallelogram">A7</div></a></div></td>
+<td><div class="mash-button"><a href="/radar"><div class="parallelogram">Radar</div></a></div></td>
 <td>F{4}</td>
 <td>B{5}</td>
 <td>R{6}</td>
