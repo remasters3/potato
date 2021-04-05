@@ -237,7 +237,7 @@ buttonshtml = '''
 indexstyle = '''
 .mash-wrapper {
     max-width: 100%;
-    position: fixed;
+    position: relitive;
     margin: 0 auto;
     border: 0px solid pink;
     border: 0px solid black;   
