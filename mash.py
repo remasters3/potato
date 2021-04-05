@@ -239,9 +239,9 @@ indexstyle = '''
 
     .main-box-format {
         float: left;
-        height: 768px;
-        width: 1024px;
-        border: 1px groove black;
+        height: 100%;
+        width: 74%;
+        border: 0px groove black;
         margin: 0px;
         
     }
