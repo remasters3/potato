@@ -174,10 +174,9 @@ a:active {
   margin-bottom:auto;
 }
 
-.parallelogram {
-	width: 35px;
-	height: 35px;
-    transform: skew(10deg);
+.button-fire {
+	width: 45px;
+	height: 45px;
 	background: #cacfd2;
     text-align:center;
     margin-top:auto;
@@ -200,21 +199,21 @@ buttonshtml = '''
 <table class="buttons-table" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A1</div></a></div></td>
+<td><div class="mash-button"><a href="/A1"><div class="button-fire">A1</div></a></div></td>
 <td>B1</td>
 <td><div class="mash-button"><a href="/forward"><div class="triangle-up"></div></a></div></td>
 <td>D1</td>
 <td>E1</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A2</div></a></div></td>
+<td><div class="mash-button"><a href="/A1"><div class="button-fire">A2</div></a></div></td>
 <td><div class="mash-button"><a href="/left"><div class="triangle-left"></div></a></div></td>
 <td><div class="mash-button"><a href="/stop"><div class="circle"></div></a></div></td>
 <td><div class="mash-button"><a href="/right"><div class="triangle-right"></div></a></div></td>
 <td>E2</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A3</div></a></div></td>
+<td><div class="mash-button"><a href="/A1"><div class="button-fire">A3</div></a></div></td>
 <td>B3</td>
 <td><div class="mash-button"><a href="/back"><div class="triangle-down"></div></a></div></td>
 <td>D3</td>
@@ -222,28 +221,28 @@ buttonshtml = '''
 </tr>
 <tr><td>---</td><td>---</td><td>---</td><td>---</td><td>---</td><tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A4</div></a></div></td>
+<td><div class="mash-button"><a href="/A1"><div class="button-fire">A4</div></a></div></td>
 <td>B4</td>
 <td><div class="mash-button"><a href="/camup"><div class="triangle-up"></div></div></a></td>
 <td>D4</td>
 <td>E4</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A5</div></a></div></td>
+<td><div class="mash-button"><a href="/A1"><div class="button-fire">A5</div></a></div></td>
 <td><div class="mash-button"><a href="/camleft"><div class="triangle-left"></div></div></a></td>
 <td><div class="mash-button"><a href="/camstop"><div class="circle"></div></div></a></td>
 <td><div class="mash-button"><a href="/camright"><div class="triangle-right"></div></div></a></td>
 <td>E5</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A6</div></a></div></td>
+<td><div class="mash-button"><a href="/A1"><div class="button-fire">A6</div></a></div></td>
 <td>B6</td>
 <td><div class="mash-button"><a href="/camdown"><div class="triangle-down"></div></div></a></td>
 <td>D6</td>
 <td>E6</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/radar"><div class="parallelogram">Radar</div></a></div></td>
+<td><div class="mash-button"><a href="/radar"><div class="button-fire">Radar</div></a></div></td>
 <td><div class="display-box">F{4}</dev></td>
 <td><div class="display-box">B{5}</dev></td>
 <td><div class="display-box">R{6}</dev></td>
