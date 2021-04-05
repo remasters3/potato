@@ -79,7 +79,8 @@ testhtml = '''
 buttonstyle = ''' 
 td {
     text-align:center;
-    color: #46523C;
+    color: white;
+    /*color: #46523C;*/
 }
 .mash-button {
     height:50px; 
