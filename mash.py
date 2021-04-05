@@ -104,7 +104,7 @@ table.buttons-table {
 
 a {
     color: #46523C;
-    text-align: center; 
+    text-align:inherit;   
 }
 
 a:link {
