@@ -15,9 +15,9 @@ from os import curdir, sep
 import socket
 
 PORT_NUMBER = 80
-hostname = socket.gethostname()
-host_name = socket.gethostbyname(hostname)
-## host_name = '192.168.240.18'
+# hostname = socket.gethostname()
+# host_name = socket.gethostbyname(hostname)
+host_name = os.popen('ip addr show wlan0 | grep "\<inet\>" | awk \'{ print $2 }\' | awk -F "/" \'{ print $1 }\'').read().strip()
 mainstyle = '''
 td {
     text-align:center;
