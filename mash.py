@@ -235,43 +235,41 @@ buttonshtml = '''
 </body></html>
 '''
 indexstyle = '''
- .mash-wrapper {
-        max-width: 100%;
-        position: relative;
-        margin: 0 auto;
-        border: 0px solid pink;
-        border: 0px solid black;
-   
-    }
-
-    .main-box-format {
-        float: left;
-        height: 100%;
-        width: 74%;
-        border: 0px groove black;
-        margin: 0px;
-        
-    }
+.mash-wrapper {
+    max-width: 100%;
+    position: relative;
+    margin: 0 auto;
+    border: 0px solid pink;
+    border: 0px solid black;   
+}
+.main-box-format {
+    float: left;
+    height: 100%;
+    width: 74%;
+    border: 0px groove black;
+    margin: 0px;
     
-    .buttons-box-format {
-        float: left;
-        height: 100%;
-        width: 25%;
-        border: 0px groove black;
-        margin: 0px;
-        
-    }
+}
+.buttons-box-format {
+    position: fixed;
+    float: right;
+    height: 100%;
+    width: 25%;
+    border: 0px groove black;
+    margin: 0px;
+    
+}
 
-    iframe {
-        width: 100%;
-        height: 100%;
-    }
+iframe {
+    width: 100%;
+    height: 100%;
+}
 
-    .clearfix:before,
-    .clearfix:after {
-        content: " "; /* 1 */
-        display: table; /* 2 */
-    }
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
 '''
 
 indexhtml = '''
