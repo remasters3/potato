@@ -172,8 +172,8 @@ a:active {
 }
 
 .parallelogram {
-	width: 45px;
-	height: 45px;
+	width: 50px;
+	height: 50px;
 	transform: skew(10deg);
 	background: #cacfd2;
     text-align:center;
