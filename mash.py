@@ -40,6 +40,10 @@ img {
     width: 100%;
 }
 
+body {
+    background-color: #46523C;
+}
+
 '''
 mainhtml = '''
 <html>
