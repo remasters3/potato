@@ -237,7 +237,7 @@ buttonshtml = '''
 indexstyle = '''
 .mash-wrapper {
     max-width: 100%;
-    position: relative;
+    position: fixed;
     margin: 0 auto;
     border: 0px solid pink;
     border: 0px solid black;   
@@ -251,7 +251,7 @@ indexstyle = '''
     
 }
 .buttons-box-format {
-    position: fixed;
+    position: relitive;
     float: left;
     height: 100%;
     width: 25%;
