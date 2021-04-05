@@ -234,14 +234,14 @@ buttonshtml = '''
 <td>E4</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="button-fire">Front<br>light</div></a></div></td>
+<td><div class="mash-button"><a href="/frontlight"><div class="button-fire">Front<br>light</div></a></div></td>
 <td><div class="mash-button"><a href="/camleft"><div class="triangle-left"></div></div></a></td>
 <td><div class="mash-button"><a href="/camstop"><div class="circle"></div></div></a></td>
 <td><div class="mash-button"><a href="/camright"><div class="triangle-right"></div></div></a></td>
 <td>E5</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="button-fire">Rear<br>light</div></a></div></td>
+<td><div class="mash-button"><a href="/rearlight"><div class="button-fire">Rear<br>light</div></a></div></td>
 <td>B6</td>
 <td><div class="mash-button"><a href="/camdown"><div class="triangle-down"></div></div></a></td>
 <td>D6</td>
@@ -347,10 +347,29 @@ class myHandler(BaseHTTPRequestHandler):
         elif self.path=="/main":
             http_reply(mainhtml,mainstyle,status,campos,radarping,lightstatus,power)
             
-        elif self.path=='/A1':
-            status='FIRE'
+        elif self.path=='/frontlight':
+            fls=lightstatus[0]
+            rls=lightstatus[1]
+            if fls==0:
+                lightstatus=[1,rls]
+                status='FLON'
+            elif fls==1:
+                lightstatus=[0,rls]
+                status='FLOFF'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
-        
+
+        elif self.path=='/rearlight':
+            fls=lightstatus[0]
+            rls=lightstatus[1]
+            if rls==0:
+                lightstatus=[fls,1]
+                status='RLON'
+            elif rls==1:
+                lightstatus=[fls,0]
+                status='RLOFF'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            
+            
         elif self.path=='/powerup':
             if power < 100:
                 status='power+'
