@@ -1,0 +1,10 @@
+[Unit]
+ Description=Mash Potato Web 
+ After=multi-user.target
+
+ [Service]
+ Type=idle
+ ExecStart=/usr/bin/python /home/pi/potato/mash.py > /home/pi/potato/mash.log 2>&1
+
+ [Install]
+ WantedBy=multi-user.target
