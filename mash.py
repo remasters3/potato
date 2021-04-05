@@ -240,7 +240,7 @@ buttonshtml = '''
 <td>E6</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/radar"><div class="button-fire">Radar</div></a></div></td>
+<td><div class="mash-button"><a href="/radar"><div class="button-fire">Ping<br>Radar</div></a></div></td>
 <td><div class="display-box">F{4}</dev></td>
 <td><div class="display-box">B{5}</dev></td>
 <td><div class="display-box">L{6}</dev></td>
