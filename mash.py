@@ -38,7 +38,7 @@ mainhtml = '''
 <html>
 <head><style>{0}</style>
 <body>
-<div class ="rectangle"> <img src="http://{11}:8081/0/stream" width="1024" height="768"> </div>
+<div class ="rectangle"> <img src="http://{11}:8081/0/stream"></div>
 </body>
 <html>
 '''
