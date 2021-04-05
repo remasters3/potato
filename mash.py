@@ -82,6 +82,7 @@ td {
     color: white;
     /*color: #46523C;*/
 }
+/*
 .mash-button {
     height:50px; 
     width:50px;
@@ -89,6 +90,7 @@ td {
     margin-bottom:auto;
     text-align:center;
 }
+*/
 table {
     text-align:centre;
 }
