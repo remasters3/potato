@@ -243,8 +243,8 @@ buttonshtml = '''
 <td><div class="mash-button"><a href="/radar"><div class="button-fire">Radar</div></a></div></td>
 <td><div class="display-box">F{4}</dev></td>
 <td><div class="display-box">B{5}</dev></td>
-<td><div class="display-box">R{6}</dev></td>
-<td><div class="display-box">L{7}</dev></td>
+<td><div class="display-box">L{6}</dev></td>
+<td><div class="display-box">R{7}</dev></td>
 </tr>
 </tbody>
 </table>
