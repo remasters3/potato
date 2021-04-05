@@ -198,7 +198,7 @@ buttonshtml = '''
 <tbody>
 <tr>
 <td><div class="mash-button"><a href="/powerup"><div class="button-fire"><br>P+</div></a></div></td>
-<td><div class="display-box">P{10}</dev></td>
+<td><div class="display-box">P{10}</div></td>
 <td><div class="mash-button"><a href="/forward"><div class="triangle-up"></div></a></div></td>
 <td>D1</td>
 <td>E1</td>
@@ -220,9 +220,9 @@ buttonshtml = '''
 <tr><td>---</td><td>---</td><td>---</td><td>---</td><td>---</td><tr>
 <tr>
 <td><div class="mash-button"><a href="/A1"><div class="button-fire">A4</div></a></div></td>
-<td><div class="display-box">P{2}</dev></td></td>
+<td><div class="display-box">P{2}</div></td></td>
 <td><div class="mash-button"><a href="/camup"><div class="triangle-up"></div></div></a></td>
-<td><div class="display-box">T{3}</dev></td></td>
+<td><div class="display-box">T{3}</div></td></td>
 <td>E4</td>
 </tr>
 <tr>
@@ -241,10 +241,10 @@ buttonshtml = '''
 </tr>
 <tr>
 <td><div class="mash-button"><a href="/radar"><div class="button-fire">Ping<br>Radar</div></a></div></td>
-<td><div class="display-box">F{4}</dev></td>
-<td><div class="display-box">B{5}</dev></td>
-<td><div class="display-box">L{6}</dev></td>
-<td><div class="display-box">R{7}</dev></td>
+<td><div class="display-box">F{4}</div></td>
+<td><div class="display-box">B{5}</div></td>
+<td><div class="display-box">L{6}</div></td>
+<td><div class="display-box">R{7}</div></td>
 </tr>
 </tbody>
 </table>
