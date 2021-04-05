@@ -172,7 +172,7 @@ a:active {
 
 buttonshtml = '''
 <html><head><style>{0}</style><title></title></head><body>
-<table class="buttons-table" border="0" cellpadding="0" cellspacing="0">
+<table class="buttons-table" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
 <td><div class="mash-button"><a href="/A1"><div class="parallelogram">A1</div></a></div></td>
