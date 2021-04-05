@@ -123,6 +123,10 @@ a:active {
     text-decoration: none;
 }
 
+body {
+    background-color: #46523C;
+}
+
 .triangle-up {
 	width: 0;
 	height: 0;
