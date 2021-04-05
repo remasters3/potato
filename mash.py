@@ -224,6 +224,7 @@ buttonshtml = '''
 <br> 8 - FRONT LIGHT:{8}
 <br> 9 - REAR LIGHT:{9}
 <br> 10 - POWER:{10}
+<br> 11 - IP:{11}
 </body></html>
 '''
 indexstyle = '''
