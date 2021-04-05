@@ -220,9 +220,9 @@ buttonshtml = '''
 <tr><td>---</td><td>---</td><td>---</td><td>---</td><td>---</td><tr>
 <tr>
 <td><div class="mash-button"><a href="/A1"><div class="button-fire">A4</div></a></div></td>
-<td>B4</td>
+<td><div class="display-box">P{2}</dev></td></td>
 <td><div class="mash-button"><a href="/camup"><div class="triangle-up"></div></div></a></td>
-<td>D4</td>
+<td><div class="display-box">T{3}</dev></td></td>
 <td>E4</td>
 </tr>
 <tr>
