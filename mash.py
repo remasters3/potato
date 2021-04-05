@@ -67,16 +67,11 @@ testhtml = '''
 <head><style>{0}</style></head>
 <body>
 <h1>{1}</h1> 
-<br> 2 - PAN:{2} 
-<br> 3 - TILT:{3}
-<br> 4 - FRONT RADAR:{4}
-<br> 5 - REAR RADAR:{5}
-<br> 6 - LEFT RADAR:{6}
-<br> 7 - RIGHT RADAR:{7}
-<br> 8 - FRONT LIGHT:{8}
-<br> 9 - REAR RADAR:{9}
-<br> 10 - POWER:{10}
-<br> 11 - IP:{11}
+<br> 2 - PAN:{2} | 3 - TILT:{3}
+<br> 4 - FRONT RADAR:{4} | 5 - REAR RADAR:{5}
+<br> 6 - LEFT RADAR:{6} | 7 - RIGHT RADAR:{7}
+<br> 8 - FRONT LIGHT:{8} | 9 - REAR RADAR:{9}
+<br> 10 - POWER:{10} | 11 - IP:{11}
 <br>
 </body>
 </html>
