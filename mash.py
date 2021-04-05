@@ -352,10 +352,10 @@ class myHandler(BaseHTTPRequestHandler):
             rls=lightstatus[1]
             if fls==0:
                 lightstatus=[1,rls]
-                status='FLON'
+                status='TOGGLE LIGHT'
             elif fls==1:
                 lightstatus=[0,rls]
-                status='FLOFF'
+                status='TOGGLE LIGHT'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/rearlight':
@@ -363,16 +363,16 @@ class myHandler(BaseHTTPRequestHandler):
             rls=lightstatus[1]
             if rls==0:
                 lightstatus=[fls,1]
-                status='RLON'
+                status='TOGGLE LIGHT'
             elif rls==1:
                 lightstatus=[fls,0]
-                status='RLOFF'
+                status='TOGGLE LIGHT'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
             
             
         elif self.path=='/powerup':
             if power < 100:
-                status='power+'
+                status='POWER +'
                 power = power+10
             else:
                 status='MAX'
@@ -380,14 +380,14 @@ class myHandler(BaseHTTPRequestHandler):
             
         elif self.path=='/powerdown':
             if power > 0:
-                status='power-'
+                status='POWER -'
                 power = power-10
             else:
                 status='MIN'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/radar':
-            status='Sonic Ping!'
+            status='RADAR PING'
             frontdist = sonar.pingFront()
             reardist = sonar.pingRear()
             leftdist = sonar.pingLeft()
@@ -396,7 +396,7 @@ class myHandler(BaseHTTPRequestHandler):
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/forward':
-            status='GO^'
+            status='MOVE FORWARD'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
             movment.allstop(0)
             movment.forward(0,power)
@@ -405,28 +405,27 @@ class myHandler(BaseHTTPRequestHandler):
         elif self.path=='/back':
             movment.allstop(0)
             movment.backwards(0,power)
-            status='GOv'
+            status='MOVE BACK'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/left':
             movment.allstop(0)
             movment.TurnLeft(0,power)
-            status='GO<'
+            status='TURN LEFT'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/right':
             movment.allstop(0)
             movment.TurnRight(0,power)
-            status='GO>'
+            status='TURN RIGHT'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/stop':
             movment.allstop(0)
-            status='STOP'
+            status='STOP DEAD'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/camstop':
-            status='CAM RESET'
             campos.clear()
             campos.insert(0,90)
             campos.insert(1,90)
@@ -439,51 +438,39 @@ class myHandler(BaseHTTPRequestHandler):
             agl = campos[1]
             if agl > 56:
                 agl = agl-12
-                status='CAM^'
                 campos.pop(1)
                 campos.insert(1,agl)
-                movment.servoa(agl)
-            else:
-                status='MAX'
+                movment.servoa(agl)                
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/camdown':
             pan = campos[0]
             agl = campos[1]
             if agl < 138:
-                status='CAMV'
                 agl = agl+12
                 campos.pop(1)
                 campos.insert(1,agl)
                 movment.servoa(agl)
-            else:
-                status='MAX'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
             
         elif self.path=='/camleft':
             pan = campos[0]
             agl = campos[1]
             if pan < 180:
-                status='CAM<'
                 pan = pan+30
                 campos.pop(0)
                 campos.insert(0,pan)
                 movment.servob(pan)
-            else:
-                status='MAX'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
             
         elif self.path=='/camright':
             pan = campos[0]
             agl = campos[1]
             if pan > 0:
-                status='CAM>'
                 pan = pan-30
                 campos.pop(0)
                 campos.insert(0,pan)
                 movment.servob(pan)
-            else:
-                status='MAX'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         try:
