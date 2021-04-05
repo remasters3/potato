@@ -179,8 +179,6 @@ a:active {
 	height: 45px;
 	background: #cacfd2;
     text-align:center;
-    margin-top:auto;
-    margin-bottom:auto;
 }
 
 .display-box {
