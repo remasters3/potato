@@ -9,7 +9,7 @@ agl = 90
 pan = 90
 movment.servoa(agl)
 movment.servob (pan)
-maxdist = 200
+maxdist = 500
 mindist = 30
 
 try:

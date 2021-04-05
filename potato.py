@@ -123,7 +123,8 @@ try:
         elif char == curses.KEY_UP:
             movment.allstop(0)
             system('clear')
-            dist = sonar.pingFront()
+            dist = 31
+            ## dist = sonar.pingFront()
             if dist > 30:
                 print(' ^ ')
                 movment.forward(0,power)
