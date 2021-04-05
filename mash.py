@@ -387,7 +387,7 @@ class myHandler(BaseHTTPRequestHandler):
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/radar':
-            status='FIRE'
+            status='Sonic Ping!'
             frontdist = sonar.pingFront()
             reardist = sonar.pingRear()
             leftdist = sonar.pingLeft()
