@@ -69,6 +69,7 @@ testhtml = '''
 <br> 8 - FRONT LIGHT:{8}
 <br> 9 - REAR RADAR:{9}
 <br> 10 - POWER:{10}
+<br> 11 - IP:{11}
 <br>
 </body>
 </html>
@@ -302,7 +303,7 @@ class myHandler(BaseHTTPRequestHandler):
         global radarping
         global lightstatus
         def http_reply(html,css,sstatus,cpos,rping,lstatus,pwr):
-            self.wfile.write(html.format(css,sstatus,campos[0],campos[1],radarping[0],radarping[1],radarping[2],radarping[3],lightstatus[0],lightstatus[1],pwr).encode("utf-8"))
+            self.wfile.write(html.format(css,sstatus,campos[0],campos[1],radarping[0],radarping[1],radarping[2],radarping[3],lightstatus[0],lightstatus[1],pwr,host_name).encode("utf-8"))
   
         if self.path=="/":
             http_reply(indexhtml,indexstyle,status,campos,radarping,lightstatus,power)
