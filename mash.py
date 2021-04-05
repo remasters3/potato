@@ -210,7 +210,7 @@ buttonshtml = '''
 <td>D3</td>
 <td>E3</td>
 </tr>
-<tr><td><td><div class="mash-button"><a href="/A1"><div class="parallelogram">Radar</div></a></div></td></td><td>-</td><td>-</td><td>-</td><td>-</td><tr>
+<tr><td><div class="mash-button"><a href="/A1"><div class="parallelogram">A1</div></a></div></td><td>-</td><td>-</td><td>-</td><td>-</td><tr>
 <tr>
 <td><div class="mash-button"><a href="/A1"><div class="parallelogram">A4</div></a></div></td>
 <td>B4</td>
