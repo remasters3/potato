@@ -235,11 +235,11 @@ buttonshtml = '''
 <td>E6</td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/A1"><div class="parallelogram">A7</div></a></div></td>
-<td>B7</td>
-<td>C7</td>
-<td>D7</td>
-<td>E7</td>
+<td><div class="mash-button"><a href="/radar"><div class="parallelogram">A7</div></a></div></td>
+<td>F{4}</td>
+<td>B{5}</td>
+<td>R{6}</td>
+<td>L{7}</td>
 </tr>
 </tbody>
 </table>
@@ -346,6 +346,15 @@ class myHandler(BaseHTTPRequestHandler):
             http_reply(mainhtml,mainstyle,status,campos,radarping,lightstatus,power)
             
         elif self.path=='/A1':
+            status='FIRE'
+            frontdist = sonar.pingFront()
+            reardist = sonar.pingRear()
+            leftdist = sonar.pingLeft()
+            rightdist = sonar.pingRight()
+            radarping = [frontdist,reardist,leftdist,rightdist]
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+
+        elif self.path=='/radar':
             status='FIRE'
             frontdist = sonar.pingFront()
             reardist = sonar.pingRear()
