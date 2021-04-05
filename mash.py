@@ -176,9 +176,6 @@ a:active {
 .parallelogram {
 	width: 35px;
 	height: 35px;
-	transform: skew(10deg);
-	background: #cacfd2;
-    text-align:center;
     margin-top:auto;
     margin-bottom:auto;
 }
