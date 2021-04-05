@@ -225,7 +225,7 @@ buttonshtml = '''
 <td>D3</td>
 <td>E3</td>
 </tr>
-<tr><td><div class="display-box">-</div></td><td><div class="display-box">-</div></td><td><div class="display-box">-</div></td><td><div class="display-box">-</div></td><td><div class="display-box">-</div></td><tr>
+<tr><td><div class="display-box">-</div></td><td><div class="display-box">FL{8}</div></td><td><div class="display-box">RL{9}</div></td><td><div class="display-box">-</div></td><td><div class="display-box">-</div></td><tr>
 <tr>
 <td><div class="mash-button"><a href="/A1"><div class="button-fire">A4</div></a></div></td>
 <td><div class="display-box">P{2}</div></td></td>
