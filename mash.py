@@ -252,7 +252,7 @@ indexstyle = '''
 }
 .buttons-box-format {
     position: fixed;
-    float: right;
+    float: left;
     height: 100%;
     width: 25%;
     border: 0px groove black;
