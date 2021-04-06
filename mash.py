@@ -65,7 +65,7 @@ testhtml = '''
 <html>
 <head><style>{0}</style></head>
 <body>
-<div><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/800x600_Wallpaper_Blue_Sky.png"></div>
+<div></div>
 <html>
 '''
 buttonstyle = ''' 
