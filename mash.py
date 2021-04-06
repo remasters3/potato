@@ -15,8 +15,8 @@ from os import curdir, sep
 import socket
 
 PORT_NUMBER = 80
-# hostname = socket.gethostname()
-# host_name = socket.gethostbyname(hostname)
+## hostname = socket.gethostname()
+## host_name = socket.gethostbyname(hostname)
 host_name = os.popen('ip addr show wlan0 | grep "\<inet\>" | awk \'{ print $2 }\' | awk -F "/" \'{ print $1 }\'').read().strip()
 mainstyle = '''
 td {
@@ -54,31 +54,19 @@ mainhtml = '''
 <html>
 '''
 teststyle = '''
-td {
-    text-align:center;
-    color: white;
+body {
+    background-color: #46523C;
 }
-.mash-button {
-    height:50px; 
-    width:50px; 
-}
-table {
-    text-align:centre;
+img {
+  object-fit: fill;
 }
 '''
 testhtml = ''' 
 <html>
 <head><style>{0}</style></head>
 <body>
-<h1>{1}</h1> 
-<br> 2 - PAN:{2} | 3 - TILT:{3}
-<br> 4 - FRONT RADAR:{4} | 5 - REAR RADAR:{5}
-<br> 6 - LEFT RADAR:{6} | 7 - RIGHT RADAR:{7}
-<br> 8 - FRONT LIGHT:{8} | 9 - REAR RADAR:{9}
-<br> 10 - POWER:{10} | 11 - IP:{11}
-<br>
-</body>
-</html>
+<div><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/800x600_Wallpaper_Blue_Sky.png"></div>
+<html>
 '''
 buttonstyle = ''' 
 td {
@@ -95,12 +83,10 @@ td {
     text-align:center;
 }
 */
-table {
-    text-align:centre;
-}
 
 table.buttons-table {
     background-color: #46523C;
+    width: 250px;
     text-align:center;
     margin-top:auto;
     margin-bottom:auto;
@@ -136,7 +122,7 @@ body {
 	height: 0;
 	border-left: 25px solid transparent;
 	border-right: 25px solid transparent;
-	border-bottom: 50px solid #cacfd2;
+	border-bottom: 50px solid #7a7e80;
     text-align:center;
     margin-top:auto;
     margin-bottom:auto;
@@ -146,7 +132,7 @@ body {
 	height: 0;
 	border-left: 25px solid transparent;
 	border-right: 25px solid transparent;
-	border-top: 50px solid #cacfd2;
+	border-top: 50px solid #7a7e80;
     text-align:center;
     margin-top:auto;
     margin-bottom:auto;
@@ -155,7 +141,7 @@ body {
 	width: 0;
 	height: 0;
 	border-top: 25px solid transparent;
-	border-right: 50px solid #cacfd2;
+	border-right: 50px solid #7a7e80;
 	border-bottom: 25px solid transparent;
     text-align:center;
     margin-top:auto;
@@ -165,7 +151,7 @@ body {
 	width: 0;
 	height: 0;
 	border-top: 25px solid transparent;
-	border-left: 50px solid #cacfd2;
+	border-left: 50px solid #7a7e80;
 	border-bottom: 25px solid transparent;
     text-align:center;
     margin-top:auto;
@@ -175,7 +161,7 @@ body {
 .circle {
   height: 50px;
   width: 50px;
-  background-color: #cacfd2;
+  background-color: #a2a6a8;
   border-radius: 50%;
   text-align:center;
   margin-top:auto;
@@ -183,17 +169,26 @@ body {
 }
 
 .button-fire {
-	width: 45px;
-	height: 45px;
+	width: 42px;
+	height: 42px;
 	background: #cacfd2;
     text-align:center;
 }
 
 .display-box {
   width:100%;
-  height:100%;
-  color: #46523C;
-  background-color: #cacfd2;
+  height:20px;
+  color: #2c3326;
+  background-color: #dcdfe0;
+  text-align:center;
+}
+
+.status-display-box {
+  width: 250px;
+  height:20px;
+  color: #2c3326;
+  background-color: #dcdfe0;
+  text-align:center;
 }
 
 
@@ -208,54 +203,48 @@ buttonshtml = '''
 <td><div class="mash-button"><a href="/powerup"><div class="button-fire"><br>P+</div></a></div></td>
 <td><div class="display-box">P{10}</div></td>
 <td><div class="mash-button"><a href="/forward"><div class="triangle-up"></div></a></div></td>
-<td>D1</td>
-<td><div class="display-box">{1}</div></td>
+<td><div class="display-box">-</div></td>
+<td><div class="mash-button"><a href="/buttons"><div class="button-fire">E1</div></a></div></td>
 </tr>
 <tr>
 <td><div class="mash-button"><a href="/powerdown"><div class="button-fire"><br>P-</div></a></div></td>
 <td><div class="mash-button"><a href="/left"><div class="triangle-left"></div></a></div></td>
 <td><div class="mash-button"><a href="/stop"><div class="circle"></div></a></div></td>
 <td><div class="mash-button"><a href="/right"><div class="triangle-right"></div></a></div></td>
-<td>E2</td>
+<td><div class="mash-button"><a href="/buttons"><div class="button-fire">E2</div></a></div></td>
 </tr>
 <tr>
-<td><div class="mash-button"><a href="/buttons"><div class="button-fire">Beep<br>Horn</div></a></div></td>
-<td>B3</td>
+<td><div class="mash-button"><a href="/horn"><div class="button-fire"><br>Horn</div></a></div></td>
+<td><div class="display-box">-</div></td>
 <td><div class="mash-button"><a href="/back"><div class="triangle-down"></div></a></div></td>
-<td>D3</td>
-<td>E3</td>
+<td><div class="display-box">-</div></td>
+<td><div class="mash-button"><a href="/buttons"><div class="button-fire">E3</div></a></div></td>
 </tr>
-<tr><td><div class="display-box">-</div></td><td><div class="display-box">FL{8}</div></td><td><div class="display-box">RL{9}</div></td><td><div class="display-box">-</div></td><td><div class="display-box">-</div></td><tr>
+<tr><td><div class="display-box">FL{8}</div></td><td><div class="display-box">RL{9}</div></td><td><div class="display-box">P{2}</div></td><td><div class="display-box">T{3}</div></td><td><div class="display-box">-</div></td><tr>
 <tr>
-<td><div class="mash-button"><a href="/buttons"><div class="button-fire">Fire<br>Gun</div></a></div></td>
-<td><div class="display-box">P{2}</div></td></td>
+<td><div class="mash-button"><a href="/shoot"><div class="button-fire"><br>Shoot</div></a></div></td>
+<td><div class="display-box">F{4}</div></td></td>
 <td><div class="mash-button"><a href="/camup"><div class="triangle-up"></div></div></a></td>
-<td><div class="display-box">T{3}</div></td></td>
-<td>E4</td>
+<td><div class="display-box">R{7}</div></td></td>
+<td><div class="mash-button"><a href="/radar"><div class="button-fire">Ping<br>Radar</div></a></div></td>
 </tr>
 <tr>
 <td><div class="mash-button"><a href="/frontlight"><div class="button-fire">Front<br>light</div></a></div></td>
 <td><div class="mash-button"><a href="/camleft"><div class="triangle-left"></div></div></a></td>
 <td><div class="mash-button"><a href="/camstop"><div class="circle"></div></div></a></td>
 <td><div class="mash-button"><a href="/camright"><div class="triangle-right"></div></div></a></td>
-<td>E5</td>
+<td><div class="mash-button"><a href="/buttons"><div class="button-fire">E5</div></a></div></td>
 </tr>
 <tr>
 <td><div class="mash-button"><a href="/rearlight"><div class="button-fire">Rear<br>light</div></a></div></td>
-<td>B6</td>
+<td><div class="display-box">L{6}</div></td></td>
 <td><div class="mash-button"><a href="/camdown"><div class="triangle-down"></div></div></a></td>
-<td>D6</td>
-<td>E6</td>
-</tr>
-<tr>
-<td><div class="mash-button"><a href="/radar"><div class="button-fire">Ping<br>Radar</div></a></div></td>
-<td><div class="display-box">F{4}</div></td>
-<td><div class="display-box">B{5}</div></td>
-<td><div class="display-box">L{6}</div></td>
-<td><div class="display-box">R{7}</div></td>
+<td><div class="display-box">B{5}</div></td></td>
+<td><div class="mash-button"><a href="/buttons"><div class="button-fire">E6</div></a></div></td>
 </tr>
 </tbody>
 </table>
+<div class="status-display-box">{1}</div>
 </body></html>
 '''
 indexstyle = '''
@@ -269,7 +258,7 @@ indexstyle = '''
 .main-box-format {
     float: left;
     height: 100%;
-    width: 70%;
+    width: 75%;
     border: 0px groove black;
     margin: 0px;
     
@@ -278,7 +267,7 @@ indexstyle = '''
     position: relitive;
     float: left;
     height: 100%;
-    width: 30%;
+    width: 25%;
     border: 0px groove black;
     margin: 0px;
     
@@ -315,9 +304,9 @@ indexhtml = '''
 </html>
 '''
 power = 100
-status = 'Potatobot v.0001'
+status='Potatobot v.000001 MASHED'
 campos = [90,90]
-radarping = [999,999,999,999]
+radarping = [9999,9999,9999,9999]
 lightstatus = [0,0]
 msg = "message 1"
 testmsg = "mic check"
@@ -340,6 +329,14 @@ class myHandler(BaseHTTPRequestHandler):
             
         elif self.path=="/buttons":
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+        
+        elif self.path=="/horn":
+            status ='BEEP! BEEP!'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+
+        elif self.path=="/shoot":
+            status ='SHOTS FIRED!'
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
             
         elif self.path=="/test":
             http_reply(testhtml,teststyle,status,campos,radarping,lightstatus,power)
@@ -352,10 +349,8 @@ class myHandler(BaseHTTPRequestHandler):
             rls=lightstatus[1]
             if fls==0:
                 lightstatus=[1,rls]
-                status='TOGGLE LIGHT'
             elif fls==1:
                 lightstatus=[0,rls]
-                status='TOGGLE LIGHT'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/rearlight':
@@ -363,10 +358,8 @@ class myHandler(BaseHTTPRequestHandler):
             rls=lightstatus[1]
             if rls==0:
                 lightstatus=[fls,1]
-                status='TOGGLE LIGHT'
             elif rls==1:
                 lightstatus=[fls,0]
-                status='TOGGLE LIGHT'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
             
             
@@ -387,7 +380,6 @@ class myHandler(BaseHTTPRequestHandler):
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/radar':
-            status='RADAR PING'
             frontdist = sonar.pingFront()
             reardist = sonar.pingRear()
             leftdist = sonar.pingLeft()
@@ -422,7 +414,7 @@ class myHandler(BaseHTTPRequestHandler):
 
         elif self.path=='/stop':
             movment.allstop(0)
-            status='STOP DEAD'
+            status='HALT!'
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
 
         elif self.path=='/camstop':
