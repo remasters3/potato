@@ -258,7 +258,7 @@ indexstyle = '''
 .main-box-format {
     float: left;
     height: 100%;
-    width: 75%;
+    width: 70%;
     border: 0px groove black;
     margin: 0px;
     
@@ -267,7 +267,7 @@ indexstyle = '''
     position: relitive;
     float: left;
     height: 100%;
-    width: 25%;
+    width: 30%;
     border: 0px groove black;
     margin: 0px;
     
