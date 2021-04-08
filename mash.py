@@ -327,24 +327,24 @@ class myHandler(BaseHTTPRequestHandler):
             self.wfile.write(html.format(css,sstatus,campos[0],campos[1],radarping[0],radarping[1],radarping[2],radarping[3],lightstatus[0],lightstatus[1],pwr,host_name,misc).encode("utf-8"))
   
         if self.path=="/":
-            http_reply(indexhtml,indexstyle,status,campos,radarping,lightstatus,power)
+            http_reply(indexhtml,indexstyle,status,campos,radarping,lightstatus,power,misc)
             
         elif self.path=="/buttons":
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
         
         elif self.path=="/horn":
             status ='BEEP! BEEP!'
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         elif self.path=="/shoot":
             status ='SHOTS FIRED!'
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
             
         elif self.path=="/test":
-            http_reply(testhtml,teststyle,status,campos,radarping,lightstatus,power)
+            http_reply(testhtml,teststyle,status,campos,radarping,lightstatus,power,misc)
             
         elif self.path=="/main":
-            http_reply(mainhtml,mainstyle,status,campos,radarping,lightstatus,power)
+            http_reply(mainhtml,mainstyle,status,campos,radarping,lightstatus,power,misc)
             
         elif self.path=='/frontlight':
             fls=lightstatus[0]
@@ -353,7 +353,7 @@ class myHandler(BaseHTTPRequestHandler):
                 lightstatus=[1,rls]
             elif fls==1:
                 lightstatus=[0,rls]
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         elif self.path=='/rearlight':
             fls=lightstatus[0]
@@ -362,7 +362,7 @@ class myHandler(BaseHTTPRequestHandler):
                 lightstatus=[fls,1]
             elif rls==1:
                 lightstatus=[fls,0]
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
             
             
         elif self.path=='/powerup':
@@ -371,7 +371,7 @@ class myHandler(BaseHTTPRequestHandler):
                 power = power+10
             else:
                 status='MAX'
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
             
         elif self.path=='/powerdown':
             if power > 0:
@@ -379,7 +379,7 @@ class myHandler(BaseHTTPRequestHandler):
                 power = power-10
             else:
                 status='MIN'
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         elif self.path=='/radar':
             frontdist = sonar.pingFront()
@@ -387,11 +387,11 @@ class myHandler(BaseHTTPRequestHandler):
             leftdist = sonar.pingLeft()
             rightdist = sonar.pingRight()
             radarping = [frontdist,reardist,leftdist,rightdist]
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         elif self.path=='/forward':
             status='MOVE FORWARD'
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
             movment.allstop(0)
             movment.forward(0,power)
             
@@ -400,24 +400,24 @@ class myHandler(BaseHTTPRequestHandler):
             movment.allstop(0)
             movment.backwards(0,power)
             status='MOVE BACK'
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         elif self.path=='/left':
             movment.allstop(0)
             movment.TurnLeft(0,power)
             status='TURN LEFT'
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         elif self.path=='/right':
             movment.allstop(0)
             movment.TurnRight(0,power)
             status='TURN RIGHT'
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         elif self.path=='/stop':
             movment.allstop(0)
             status='HALT!'
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         elif self.path=='/camstop':
             campos.clear()
@@ -425,7 +425,7 @@ class myHandler(BaseHTTPRequestHandler):
             campos.insert(1,90)
             movment.servoa(90)
             movment.servob(90)
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         elif self.path=='/camup':
             pan = campos[0]
@@ -435,7 +435,7 @@ class myHandler(BaseHTTPRequestHandler):
                 campos.pop(1)
                 campos.insert(1,agl)
                 movment.servoa(agl)                
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         elif self.path=='/camdown':
             pan = campos[0]
@@ -445,7 +445,7 @@ class myHandler(BaseHTTPRequestHandler):
                 campos.pop(1)
                 campos.insert(1,agl)
                 movment.servoa(agl)
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
             
         elif self.path=='/camleft':
             pan = campos[0]
@@ -455,7 +455,7 @@ class myHandler(BaseHTTPRequestHandler):
                 campos.pop(0)
                 campos.insert(0,pan)
                 movment.servob(pan)
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
             
         elif self.path=='/camright':
             pan = campos[0]
@@ -465,7 +465,7 @@ class myHandler(BaseHTTPRequestHandler):
                 campos.pop(0)
                 campos.insert(0,pan)
                 movment.servob(pan)
-            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power)
+            http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,misc)
 
         try:
             sendReply = False
