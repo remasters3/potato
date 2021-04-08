@@ -220,7 +220,7 @@ buttonshtml = '''
 <td><div class="display-box">-</div></td>
 <td><div class="mash-button"><a href="/buttons"><div class="button-fire">E3</div></a></div></td>
 </tr>
-<tr><td><div class="display-box">FL{8}</div></td><td><div class="display-box">RL{9}</div></td><td><div class="display-box">P{2}</div></td><td><div class="display-box">T{3}</div></td><td><div class="display-box">-</div></td><tr>
+<tr><td><div class="display-box">FL{8}</div></td><td><div class="display-box">RL{9}</div></td><td><div class="display-box">P{2}</div></td><td><div class="display-box">T{3}</div></td><td><div class="display-box">SCR:{13}</div></td><tr>
 <tr>
 <td><div class="mash-button"><a href="/shoot"><div class="button-fire"><br>Shoot</div></a></div></td>
 <td><div class="display-box">F{4}</div></td></td>
@@ -308,6 +308,7 @@ status='Potatobot v.000001 MASHED'
 campos = [90,90]
 radarping = [9999,9999,9999,9999]
 lightstatus = [0,0]
+mainscreen = 1
 msg = "message 1"
 testmsg = "mic check"
 
@@ -321,8 +322,9 @@ class myHandler(BaseHTTPRequestHandler):
         global campos
         global radarping
         global lightstatus
-        def http_reply(html,css,sstatus,cpos,rping,lstatus,pwr):
-            self.wfile.write(html.format(css,sstatus,campos[0],campos[1],radarping[0],radarping[1],radarping[2],radarping[3],lightstatus[0],lightstatus[1],pwr,host_name).encode("utf-8"))
+        global misc
+        def http_reply(html,css,sstatus,cpos,rping,lstatus,pwr,misc):
+            self.wfile.write(html.format(css,sstatus,campos[0],campos[1],radarping[0],radarping[1],radarping[2],radarping[3],lightstatus[0],lightstatus[1],pwr,host_name,misc).encode("utf-8"))
   
         if self.path=="/":
             http_reply(indexhtml,indexstyle,status,campos,radarping,lightstatus,power)
