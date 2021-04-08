@@ -341,7 +341,12 @@ class myHandler(BaseHTTPRequestHandler):
             http_reply(buttonshtml,buttonstyle,status,campos,radarping,lightstatus,power,mainscreen)
             
         elif self.path=="/test":
-            http_reply(testhtml,teststyle,status,campos,radarping,lightstatus,power,mainscreen)
+            if mainscreen == 1:
+                mainscreen = 0
+                http_reply(testhtml,teststyle,status,campos,radarping,lightstatus,power,mainscreen)
+            else:
+                mainscreen = 1
+                http_reply(mainhtml,mainstyle,status,campos,radarping,lightstatus,power,mainscreen)
             
         elif self.path=="/main":
             http_reply(mainhtml,mainstyle,status,campos,radarping,lightstatus,power,mainscreen)
