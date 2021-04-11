@@ -51,14 +51,14 @@ def backwards(tf,spd):
 
 
 def TurnRight(tf,spd):
-    rb.ChangeDutyCycle(spd)
-    lf.ChangeDutyCycle(spd)
+    rf.ChangeDutyCycle(spd)
+    lb.ChangeDutyCycle(spd)
     time.sleep(tf)
 
     
 def TurnLeft(tf,spd):
-    lb.ChangeDutyCycle(spd)
-    rf.ChangeDutyCycle(spd)
+    lf.ChangeDutyCycle(spd)
+    rb.ChangeDutyCycle(spd)
     time.sleep(tf)
 
 
