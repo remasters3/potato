@@ -1,0 +1,162 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mashed potato</title>
+</head>
+<style>
+
+body {
+    background-color: #46523C;
+}
+
+.triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-bottom: 50px solid #7a7e80;
+    text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.triangle-up:active {
+    border-bottom: 50px solid #3e8e41;
+}
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-top: 50px solid #7a7e80;
+    text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+.triangle-down:active {
+    border-top: 50px solid #3e8e41;
+}
+.triangle-left {
+	width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-right: 50px solid #7a7e80;
+	border-bottom: 25px solid transparent;
+    text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.triangle-left:active {
+    border-right: 50px solid #3e8e41;
+}
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-left: 50px solid #7a7e80;
+	border-bottom: 25px solid transparent;
+    text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.triangle-right:active {
+    border-left: 50px solid #3e8e41
+}
+
+.circle {
+  height: 50px;
+  width: 50px;
+  background-color: #7a7e80;
+  border-radius: 50%;
+  text-align:center;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+.circle:active {
+    background-color: #3e8e41
+}
+
+table.buttons-table {
+    background-color:  #46523C;
+    width: 200px;
+    text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+td {
+    text-align:center;
+    color: #46523C;
+	background-color: #46523C;
+}
+
+</style>
+<body>
+    <table class="buttons-table" cellpadding="0" cellspacing="0">
+      <tr>
+        <td></td>
+        <td><button class="button triangle-up" id = "forward" accesskey="o" onmousedown="mforward(1)" onmouseup="stop()"></button></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><button class="button triangle-left" id = "left" accesskey="o" onmousedown="mleftwards(1)" onmouseup="stop()"></button></td>
+        <td><button class="button circle" id = "stop" accesskey="o" onmousedown="stop()" onmouseup="stop()"></button></td>
+        <td><button class="button triangle-right" id = "right" accesskey="o" onmousedown="mrightwards(1)" onmouseup="stop()"></button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button class="button triangle-down" id = "back" accesskey="o" onmousedown="mbackwards(1)" onmouseup="stop()"></button></td>
+        <td></td>
+      </tr>
+    </table>
+
+
+    <script>
+        var repeatId;
+        var count = 0;
+        function mforward(value){
+            repeatId = setInterval(
+                function() {
+                console.log("Moving forward. " + (++count));
+                }, 
+              1000 
+            );
+        }
+        function mbackwards(value){
+            repeatId = setInterval(
+                function() {
+                console.log("Moving back. " + (++count));
+                }, 
+              1000
+            );
+        }
+		
+        function mleftwards(value){
+            repeatId = setInterval(
+                function() {
+                console.log("Moving left. " + (++count));
+                }, 
+              1000
+            );
+        }
+		
+        function mrightwards(value){
+            repeatId = setInterval(
+                function() {
+                console.log("Moving right. " + (++count));
+                }, 
+              1000
+            );
+        }
+        
+        function stop(){
+            clearInterval(repeatId);
+            count = 0;
+            console.log("Stop");
+        }
+    </script>
+
+</body>
+</html>
